@@ -380,7 +380,7 @@ public interface IScintillaMethods
     /// <summary>
     /// Clears any undo or redo history.
     /// </summary>
-    /// <remarks>This will also cause <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs}.SavePointReached" /> event.</remarks>
+    /// <remarks>This will also cause <see cref="IScintillaEvents.SavePointReached" /> event.</remarks>
     void EmptyUndoBuffer();
 
     /// <summary>
@@ -390,7 +390,7 @@ public interface IScintillaMethods
     void EndUndoAction();
 
     /// <summary>
-    /// Performs the specified <see cref="Scintilla" />command.
+    /// Performs the specified Scintilla >command.
     /// </summary>
     /// <param name="sciCommand">The command to perform.</param>
     void ExecuteCmd(Command sciCommand);

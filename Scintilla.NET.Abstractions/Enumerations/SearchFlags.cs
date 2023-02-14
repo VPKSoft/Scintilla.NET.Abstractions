@@ -1,4 +1,6 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
 /// Specifies the how patterns are matched when performing a search in a Scintilla control.
@@ -40,9 +42,9 @@ public enum SearchFlags
 
     /// <summary>
     /// The search string should be interpreted as a regular expression and use the C++11 &lt;regex&gt; standard library engine.
-    /// The <see cref="Scintilla.Status" /> property can queried to determine if the regular expression is invalid.
+    /// The <see cref="IScintillaProperties.Status" /> property can queried to determine if the regular expression is invalid.
     /// The ECMAScript flag is set on the regex object and documents will exhibit Unicode-compliant behaviour.
     /// Regular expressions will only match ranges within a single line, never matching over multiple lines.
     /// </summary>
-    Cxx11Regex = ScintillaConstants.SCFIND_CXX11REGEX
+    Cxx11Regex = ScintillaConstants.SCFIND_CXX11REGEX,
 }

@@ -1,9 +1,12 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces;
+using ScintillaNet.Abstractions.Interfaces.Methods;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
 /// Behavior of the standard edit control context menu.
 /// </summary>
-/// <seealso cref="Scintilla.UsePopup(PopupMode)" />
+/// <seealso cref="IScintillaMethods.UsePopup(PopupMode)" />
 public enum PopupMode
 {
     /// <summary>
@@ -19,7 +22,7 @@ public enum PopupMode
     /// <summary>
     /// Show default editing menu only if clicking on text area.
     /// </summary>
-    /// <remarks>To receive the <see cref="Scintilla.MarginRightClick" /> event, this value must be used.</remarks>
-    /// <seealso cref="Scintilla.MarginRightClick" />
-    Text = ScintillaConstants.SC_POPUP_TEXT
+    /// <remarks>To receive the <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs}.MarginRightClick" /> event, this value must be used.</remarks>
+    /// <seealso cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs}.MarginRightClick" />
+    Text = ScintillaConstants.SC_POPUP_TEXT,
 }

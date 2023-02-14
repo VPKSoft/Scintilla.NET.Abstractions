@@ -178,5 +178,5 @@ public enum Lexer
     /// <summary>
     /// The R programming language lexer.
     /// </summary>
-    R = ScintillaConstants.SCLEX_R
+    R = ScintillaConstants.SCLEX_R,
 }

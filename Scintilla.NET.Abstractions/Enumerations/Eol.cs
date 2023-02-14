@@ -18,5 +18,5 @@ public enum Eol
     /// <summary>
     /// Line Feed '\n' (0x0A).
     /// </summary>
-    Lf = ScintillaConstants.SC_EOL_LF
+    Lf = ScintillaConstants.SC_EOL_LF,
 }

@@ -90,7 +90,7 @@ public abstract class LineBase : IScintillaLine
     {
         marker = HelpersGeneral.Clamp(marker, 0, MarkerCollectionGeneral.Count - 1);
         var handle = ScintillaApi.DirectMessage(SCI_MARKERADD, new IntPtr(Index), new IntPtr(marker));
-        return new MarkerHandle { Value = handle };
+        return new MarkerHandle { Value = handle, };
     }
 
     /// <summary>

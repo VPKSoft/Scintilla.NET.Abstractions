@@ -1,4 +1,6 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces.Methods;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
 /// Indicates how an auto-completion occurred.
@@ -6,8 +8,8 @@
 public enum ListCompletionMethod
 {
     /// <summary>
-    /// A fill-up character (see <see cref="Scintilla.AutoCSetFillUps" />) triggered the completion.
-    /// The character used is indicated by the <see cref="AutoCSelectionEventArgsBase.Char" /> property.
+    /// A fill-up character (see <see cref="IScintillaMethods.AutoCSetFillUps" />) triggered the completion.
+    /// The character used is indicated by the <see cref="char" /> property.
     /// </summary>
     FillUp = ScintillaConstants.SC_AC_FILLUP,
 
@@ -27,7 +29,7 @@ public enum ListCompletionMethod
     NewLine = ScintillaConstants.SC_AC_NEWLINE,
 
     /// <summary>
-    /// The <see cref="Scintilla.AutoCSelect" /> method triggered the completion.
+    /// The <see cref="IScintillaMethods.AutoCSelect" /> method triggered the completion.
     /// </summary>
-    Command = ScintillaConstants.SC_AC_COMMAND
+    Command = ScintillaConstants.SC_AC_COMMAND,
 }

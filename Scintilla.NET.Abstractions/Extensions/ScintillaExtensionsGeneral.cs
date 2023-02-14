@@ -163,11 +163,11 @@ public static class ScintillaExtensionsGeneral
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="select">
     /// The auto-completion word to select.
-    /// If found, the word in the auto-completion list is selected and the index can be obtained by calling <see cref="IScintillaProperties{TColor}.AutoCCurrent" />.
-    /// If not found, the behavior is determined by <see cref="IScintillaProperties{TColor}.AutoCAutoHide" />.
+    /// If found, the word in the auto-completion list is selected and the index can be obtained by calling <see cref="IScintillaProperties.AutoCCurrent" />.
+    /// If not found, the behavior is determined by <see cref="IScintillaProperties.AutoCAutoHide" />.
     /// </param>
     /// <remarks>
-    /// Comparisons are performed according to the <see cref="IScintillaProperties{TColor}.AutoCIgnoreCase" /> property
+    /// Comparisons are performed according to the <see cref="IScintillaProperties.AutoCIgnoreCase" /> property
     /// and will match the first word starting with <paramref name="select" />.
     /// </remarks>
     public static unsafe void AutoCSelectExtension(this IScintillaApi scintilla, string select)
@@ -220,7 +220,7 @@ public static class ScintillaExtensionsGeneral
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="lenEntered">The number of characters already entered to match on.</param>
-    /// <param name="list">A list of auto-completion words separated by the <see cref="IScintillaProperties{TColor}.AutoCSeparator" /> character.</param>
+    /// <param name="list">A list of auto-completion words separated by the <see cref="IScintillaProperties.AutoCSeparator" /> character.</param>
     public static unsafe void AutoCShowExtension(this IScintillaApi scintilla, int lenEntered, string list)
     {
         if (string.IsNullOrEmpty(list))
@@ -299,7 +299,7 @@ public static class ScintillaExtensionsGeneral
     /// <param name="position2">The zero-based document position of the close brace character.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
     /// <remarks>Brace highlighting can be removed by specifying <see cref="ApiConstants.InvalidPosition" /> for <paramref name="position1" /> and <paramref name="position2" />.</remarks>
-    /// <seealso cref="IScintillaProperties{TColor}.HighlightGuide" />
+    /// <seealso cref="IScintillaProperties.HighlightGuide" />
     public static void BraceHighlightExtension<TLine>(this IScintillaApi scintilla, int position1, int position2, IScintillaLineCollection<TLine> lines)
         where TLine : IScintillaLine
     {
@@ -673,7 +673,7 @@ public static class ScintillaExtensionsGeneral
     public static Document CreateDocumentExtension(this IScintillaApi scintilla)
     {
         var ptr = scintilla.DirectMessage(SCI_CREATEDOCUMENT);
-        return new Document { Value = ptr };
+        return new Document { Value = ptr, };
     }
 
     /// <summary>
@@ -787,7 +787,7 @@ public static class ScintillaExtensionsGeneral
     /// Clears any undo or redo history.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
-    /// <remarks>This will also cause <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs}.SavePointReached" /> event.</remarks>
+    /// <remarks>This will also cause <see cref="IScintillaEvents.SavePointReached" /> event.</remarks>
     public static void EmptyUndoBufferExtension(this IScintillaApi scintilla)
     {
         scintilla.DirectMessage(SCI_EMPTYUNDOBUFFER);
@@ -804,7 +804,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Performs the specified <see cref="Scintilla" />command.
+    /// Performs the specified Scintilla command.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="sciCommand">The command to perform.</param>
@@ -1183,7 +1183,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Removes the <see cref="IScintillaProperties{TColor}.IndicatorCurrent" /> indicator (and user-defined value) from the specified range of text.
+    /// Removes the <see cref="IScintillaProperties.IndicatorCurrent" /> indicator (and user-defined value) from the specified range of text.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="position">The zero-based character position within the document to start clearing.</param>
@@ -1203,7 +1203,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Adds the <see cref="IScintillaProperties{TColor}.IndicatorCurrent" /> indicator and <see cref="IScintillaProperties{TColor}.IndicatorValue" /> value to the specified range of text.
+    /// Adds the <see cref="IScintillaProperties.IndicatorCurrent" /> indicator and <see cref="IScintillaProperties.IndicatorValue" /> value to the specified range of text.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="position">The zero-based character position within the document to start filling.</param>
@@ -1438,7 +1438,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Searches for all instances of the main selection within the <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" />
+    /// Searches for all instances of the main selection within the <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" />
     /// range and adds any matches to the selection.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
@@ -1453,7 +1453,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Searches for the next instance of the main selection within the <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" />
+    /// Searches for the next instance of the main selection within the <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" />
     /// range and adds any match to the selection.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
@@ -1589,13 +1589,13 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Replaces the target defined by <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> with the specified <paramref name="text" />.
+    /// Replaces the target defined by <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> with the specified <paramref name="text" />.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="text">The text that will replace the current target.</param>
     /// <returns>The length of the replaced text.</returns>
     /// <remarks>
-    /// The <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> properties will be updated to the start and end positions of the replaced text.
+    /// The <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> properties will be updated to the start and end positions of the replaced text.
     /// The recommended way to delete text in the document is to set the target range to be removed and replace the target with an empty string.
     /// </remarks>
     public static unsafe int ReplaceTargetExtension(this IScintillaApi scintilla, string? text)
@@ -1612,7 +1612,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Replaces the target text defined by <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> with the specified value after first substituting
+    /// Replaces the target text defined by <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> with the specified value after first substituting
     /// "\1" through "\9" macros in the <paramref name="text" /> with the most recent regular expression capture groups.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
@@ -1622,7 +1622,7 @@ public static class ScintillaExtensionsGeneral
     /// <returns>The length of the replaced text.</returns>
     /// <remarks>
     /// The "\0" macro will be substituted by the entire matched text from the most recent search.
-    /// The <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> properties will be updated to the start and end positions of the replaced text.
+    /// The <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> properties will be updated to the start and end positions of the replaced text.
     /// </remarks>
     /// <seealso cref="GetTagExtension" />
     public static unsafe int ReplaceTargetReExtension(this IScintillaApi scintilla, string? text, int targetStart, int targetEnd)
@@ -1682,15 +1682,15 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Searches for the first occurrence of the specified text in the target defined by <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" />.
+    /// Searches for the first occurrence of the specified text in the target defined by <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" />.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="text">The text to search for. The interpretation of the text (i.e. whether it is a regular expression) is defined by the <see cref="SearchFlags" /> property.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
     /// <returns>The zero-based start position of the matched text within the document if successful; otherwise, -1.</returns>
     /// <remarks>
-    /// If successful, the <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> properties will be updated to the start and end positions of the matched text.
-    /// Searching can be performed in reverse using a <see cref="IScintillaProperties{TColor}.TargetStart" /> greater than the <see cref="IScintillaProperties{TColor}.TargetEnd" />.
+    /// If successful, the <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> properties will be updated to the start and end positions of the matched text.
+    /// Searching can be performed in reverse using a <see cref="IScintillaProperties.TargetStart" /> greater than the <see cref="IScintillaProperties.TargetEnd" />.
     /// </remarks>
     public static unsafe int SearchInTargetExtension<TLine>(this IScintillaApi scintilla, string? text, IScintillaLineCollection<TLine> lines)
         where TLine : IScintillaLine
@@ -1880,7 +1880,7 @@ public static class ScintillaExtensionsGeneral
     /// Marks the document as unmodified.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
-    /// <seealso cref="IScintillaProperties{TColor}.Modified" />
+    /// <seealso cref="IScintillaProperties.Modified" />
     public static void SetSavePointExtension(this IScintillaApi scintilla)
     {
         scintilla.DirectMessage(SCI_SETSAVEPOINT);
@@ -2030,15 +2030,15 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Sets the <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> properties in a single call.
+    /// Sets the <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> properties in a single call.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="start">The zero-based character position within the document to start a search or replace operation.</param>
     /// <param name="end">The zero-based character position within the document to end a search or replace operation.</param>
     /// <param name="textLength">The total length of the text in the Scintilla control.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
-    /// <seealso cref="IScintillaProperties{TColor}.TargetStart" />
-    /// <seealso cref="IScintillaProperties{TColor}.TargetEnd" />
+    /// <seealso cref="IScintillaProperties.TargetStart" />
+    /// <seealso cref="IScintillaProperties.TargetEnd" />
     public static void SetTargetRangeExtension<TLine>(this IScintillaApi scintilla, int start, int end, int textLength, IScintillaLineCollection<TLine> lines)
         where TLine : IScintillaLine
     {
@@ -2059,7 +2059,7 @@ public static class ScintillaExtensionsGeneral
     /// <param name="color">The global whitespace background color.</param>
     /// <param name="colorToIntFunc">A delegate to a function to translate the platform-depended color into ARGB integer value.</param>
     /// <remarks>When not overridden globally, the whitespace background color is determined by the current lexer.</remarks>
-    /// <seealso cref="IScintillaProperties{TColor}.ViewWhitespace" />
+    /// <seealso cref="IScintillaProperties.ViewWhitespace" />
     /// <seealso cref="SetWhitespaceForeColorExtension{T}" />
     public static void SetWhitespaceBackColorExtension<TColor>(this IScintillaApi scintilla, bool use, TColor color, Func<TColor, int> colorToIntFunc)
         where TColor : struct
@@ -2078,7 +2078,7 @@ public static class ScintillaExtensionsGeneral
     /// <param name="color">The global whitespace foreground color.</param>
     /// <param name="colorToIntFunc">A delegate to a function to translate the platform-depended color into ARGB integer value.</param>
     /// <remarks>When not overridden globally, the whitespace foreground color is determined by the current lexer.</remarks>
-    /// <seealso cref="IScintillaProperties{TColor}.ViewWhitespace" />
+    /// <seealso cref="IScintillaProperties.ViewWhitespace" />
     /// <seealso cref="SetWhitespaceBackColorExtension{T}" />
     public static void SetWhitespaceForeColorExtension<TColor>(this IScintillaApi scintilla, bool use, TColor color, Func<TColor, int> colorToIntFunc)
         where TColor : struct
@@ -2164,7 +2164,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Sets the <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> to the start and end positions of the selection.
+    /// Sets the <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> to the start and end positions of the selection.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <seealso cref="TargetWholeDocumentExtension" />
@@ -2174,7 +2174,7 @@ public static class ScintillaExtensionsGeneral
     }
 
     /// <summary>
-    /// Sets the <see cref="IScintillaProperties{TColor}.TargetStart" /> and <see cref="IScintillaProperties{TColor}.TargetEnd" /> to the start and end positions of the document.
+    /// Sets the <see cref="IScintillaProperties.TargetStart" /> and <see cref="IScintillaProperties.TargetEnd" /> to the start and end positions of the document.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <seealso cref="TargetFromSelectionExtension" />
@@ -2284,7 +2284,7 @@ public static class ScintillaExtensionsGeneral
     /// Increases the zoom factor by 1 until it reaches 20 points.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
-    /// <seealso cref="IScintillaProperties{TColor}.Zoom" />
+    /// <seealso cref="IScintillaProperties.Zoom" />
     public static void ZoomInExtension(this IScintillaApi scintilla)
     {
         scintilla.DirectMessage(SCI_ZOOMIN);
@@ -2294,7 +2294,7 @@ public static class ScintillaExtensionsGeneral
     /// Decreases the zoom factor by 1 until it reaches -10 points.
     /// </summary>
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
-    /// <seealso cref="IScintillaProperties{TColor}.Zoom" />
+    /// <seealso cref="IScintillaProperties.Zoom" />
     public static void ZoomOutExtension(this IScintillaApi scintilla)
     {
         scintilla.DirectMessage(SCI_ZOOMOUT);
@@ -2306,7 +2306,7 @@ public static class ScintillaExtensionsGeneral
     /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
     /// <param name="encodedString">The encoded string. I.e. the Ohm character: Ω = \u2126.</param>
     /// <param name="representationString">The representation string for the <paramref name="encodedString"/>. I.e. "OHM".</param>
-    /// <remarks>The <see cref="IScintillaProperties{TColor}.ViewWhitespace"/> must be set to <see cref="WhitespaceMode.VisibleAlways"/> for this to work.</remarks>
+    /// <remarks>The <see cref="IScintillaProperties.ViewWhitespace"/> must be set to <see cref="WhitespaceMode.VisibleAlways"/> for this to work.</remarks>
     public static unsafe void SetRepresentationExtension(this IScintillaApi scintilla, string encodedString, string representationString)
     {
         var bytesEncoded = HelpersGeneral.GetBytes(encodedString, scintilla.Encoding, zeroTerminated: true);

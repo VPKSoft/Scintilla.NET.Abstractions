@@ -13,5 +13,5 @@ public enum MarginCursor
     /// <summary>
     /// A reversed arrow.
     /// </summary>
-    ReverseArrow = ScintillaConstants.SC_CURSORREVERSEARROW
+    ReverseArrow = ScintillaConstants.SC_CURSORREVERSEARROW,
 }

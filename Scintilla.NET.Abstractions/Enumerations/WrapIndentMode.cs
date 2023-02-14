@@ -19,5 +19,5 @@ public enum WrapIndentMode
     /// <summary>
     /// Wrapped sublines are aligned to first subline indent plus one more level of indentation.
     /// </summary>
-    Indent = ScintillaConstants.SC_WRAPINDENT_INDENT
+    Indent = ScintillaConstants.SC_WRAPINDENT_INDENT,
 }

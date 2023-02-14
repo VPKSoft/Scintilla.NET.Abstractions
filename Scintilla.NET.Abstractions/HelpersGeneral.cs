@@ -77,7 +77,7 @@ public static class HelpersGeneral
     {
         if (string.IsNullOrEmpty(text))
         {
-            return zeroTerminated ? new byte[] { 0 } : new byte[0];
+            return zeroTerminated ? new byte[] { 0, } : new byte[0];
         }
 
         var count = encoding.GetByteCount(text);

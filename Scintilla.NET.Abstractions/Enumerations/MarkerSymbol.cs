@@ -1,7 +1,9 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Collections;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
-/// The symbol displayed by a <see cref="Marker" />
+/// The symbol displayed by a Marker />
 /// </summary>
 public enum MarkerSymbol
 {
@@ -11,7 +13,7 @@ public enum MarkerSymbol
     Circle = ScintillaConstants.SC_MARK_CIRCLE,
 
     /// <summary>
-    /// A rectangel with rounded edges.
+    /// A rectangle with rounded edges.
     /// </summary>
     RoundRect = ScintillaConstants.SC_MARK_ROUNDRECT,
 
@@ -153,7 +155,7 @@ public enum MarkerSymbol
     Underline = ScintillaConstants.SC_MARK_UNDERLINE,
 
     /// <summary>
-    /// A user-defined image. Images can be set using the <see cref="Marker.DefineRgbaImage" /> method.
+    /// A user-defined image. Images can be set using the <see cref="MarkerBase{TImage,TColor}.DefineRgbaImage" /> method.
     /// </summary>
     RgbaImage = ScintillaConstants.SC_MARK_RGBAIMAGE,
 

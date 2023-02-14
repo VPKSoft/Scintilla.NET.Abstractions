@@ -23,5 +23,5 @@ public enum WrapMode
     /// <summary>
     /// Lines are wrapped on whitespace.
     /// </summary>
-    Whitespace = ScintillaConstants.SC_WRAP_WHITESPACE
+    Whitespace = ScintillaConstants.SC_WRAP_WHITESPACE,
 }

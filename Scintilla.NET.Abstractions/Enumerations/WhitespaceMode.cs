@@ -24,5 +24,5 @@ public enum WhitespaceMode
     /// <summary>
     /// Whitespace used for indentation is displayed as dots and arrows.
     /// </summary>
-    VisibleOnlyIndent = ScintillaConstants.SCWS_VISIBLEONLYININDENT
+    VisibleOnlyIndent = ScintillaConstants.SCWS_VISIBLEONLYININDENT,
 }

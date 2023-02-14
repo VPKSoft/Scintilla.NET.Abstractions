@@ -28,5 +28,5 @@ public enum IdleStyling
     /// Text before and after the current visible text.
     /// This is a combination of <see cref="ToVisible" /> and <see cref="AfterVisible" />.
     /// </summary>
-    All = ScintillaConstants.SC_IDLESTYLING_ALL
+    All = ScintillaConstants.SC_IDLESTYLING_ALL,
 }

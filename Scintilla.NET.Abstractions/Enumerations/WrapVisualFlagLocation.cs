@@ -18,5 +18,5 @@ public enum WrapVisualFlagLocation
     /// <summary>
     /// Wrap indicators are drawn at the beginning of sublines near the text.
     /// </summary>
-    StartByText = ScintillaConstants.SC_WRAPVISUALFLAGLOC_START_BY_TEXT
+    StartByText = ScintillaConstants.SC_WRAPVISUALFLAGLOC_START_BY_TEXT,
 }

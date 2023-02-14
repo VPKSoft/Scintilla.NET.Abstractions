@@ -18,5 +18,5 @@ public enum PropertyType
     /// <summary>
     /// A string property.
     /// </summary>
-    String = ScintillaConstants.SC_TYPE_STRING
+    String = ScintillaConstants.SC_TYPE_STRING,
 }

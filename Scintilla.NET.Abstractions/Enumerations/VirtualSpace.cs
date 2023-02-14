@@ -25,5 +25,5 @@ public enum VirtualSpace
     /// <summary>
     /// Prevents left arrow movement and selection from wrapping to the previous line.
     /// </summary>
-    NoWrapLineStart = ScintillaConstants.SCVS_NOWRAPLINESTART
+    NoWrapLineStart = ScintillaConstants.SCVS_NOWRAPLINESTART,
 }

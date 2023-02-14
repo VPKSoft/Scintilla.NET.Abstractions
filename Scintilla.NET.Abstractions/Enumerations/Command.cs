@@ -1,4 +1,6 @@
-﻿using static ScintillaNet.Abstractions.ScintillaConstants;
+﻿using ScintillaNet.Abstractions.Interfaces;
+using ScintillaNet.Abstractions.Interfaces.Methods;
+using static ScintillaNet.Abstractions.ScintillaConstants;
 
 namespace ScintillaNet.Abstractions.Enumerations;
 
@@ -471,7 +473,7 @@ public enum Command
     Cancel = SCI_CANCEL,
 
     /// <summary>
-    /// Toggles over-type. See <see cref="IScintillaProperties{TColor}.OverType" />.
+    /// Toggles over-type. See <see cref="IScintillaProperties.OverType" />.
     /// </summary>
     EditToggleOverType = SCI_EDITTOGGLEOVERTYPE,
 
@@ -536,47 +538,47 @@ public enum Command
     // --------------------------------------------------------------------
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.ZoomIn" />.
+    /// Command equivalent to <see cref="IScintillaMethods.ZoomIn" />.
     /// </summary>
     ZoomIn = SCI_ZOOMIN,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.ZoomOut" />.
+    /// Command equivalent to <see cref="IScintillaMethods.ZoomOut" />.
     /// </summary>
     ZoomOut = SCI_ZOOMOUT,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.Undo" />.
+    /// Command equivalent to <see cref="IScintillaMethods.Undo" />.
     /// </summary>
     Undo = SCI_UNDO,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.Redo" />.
+    /// Command equivalent to <see cref="IScintillaMethods.Redo" />.
     /// </summary>
     Redo = SCI_REDO,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.SwapMainAnchorCaret" />
+    /// Command equivalent to <see cref="IScintillaMethods.SwapMainAnchorCaret" />
     /// </summary>
     SwapMainAnchorCaret = SCI_SWAPMAINANCHORCARET,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.RotateSelection" />
+    /// Command equivalent to <see cref="IScintillaMethods.RotateSelection" />
     /// </summary>
     RotateSelection = SCI_ROTATESELECTION,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.MultipleSelectAddNext" />
+    /// Command equivalent to <see cref="IScintillaMethods.MultipleSelectAddNext" />
     /// </summary>
     MultipleSelectAddNext = SCI_MULTIPLESELECTADDNEXT,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.MultipleSelectAddEach" />
+    /// Command equivalent to <see cref="IScintillaMethods.MultipleSelectAddEach" />
     /// </summary>
     MultipleSelectAddEach = SCI_MULTIPLESELECTADDEACH,
 
     /// <summary>
-    /// Command equivalent to <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.SelectAll" />
+    /// Command equivalent to <see cref="IScintillaMethods.SelectAll" />
     /// </summary>
-    SelectAll = SCI_SELECTALL
+    SelectAll = SCI_SELECTALL,
 }

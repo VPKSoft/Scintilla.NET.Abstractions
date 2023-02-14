@@ -25,5 +25,5 @@ public enum WrapVisualFlags
     /// <summary>
     /// A visual indicator is displayed in the number margin.
     /// </summary>
-    Margin = ScintillaConstants.SC_WRAPVISUALFLAG_MARGIN
+    Margin = ScintillaConstants.SC_WRAPVISUALFLAG_MARGIN,
 }

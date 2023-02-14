@@ -15,5 +15,5 @@ public enum FoldLevelFlags
     /// <summary>
     /// Indicates that the line is a header (fold point).
     /// </summary>
-    Header = ScintillaConstants.SC_FOLDLEVELHEADERFLAG
+    Header = ScintillaConstants.SC_FOLDLEVELHEADERFLAG,
 }

@@ -1,4 +1,7 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces;
+using ScintillaNet.Abstractions.Interfaces.Methods;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
 /// The long line edge display mode.
@@ -21,8 +24,8 @@ public enum EdgeMode
     Background = ScintillaConstants.EDGE_BACKGROUND,
 
     /// <summary>
-    /// Similar to <see cref="Line" /> except allows for multiple vertical lines to be visible using the <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.MultiEdgeAddLine" /> method.
+    /// Similar to <see cref="Line" /> except allows for multiple vertical lines to be visible using the <see cref="IScintillaMethodsColor{TColor}.MultiEdgeAddLine" /> method.
     /// </summary>
-    /// <remarks><see cref="Line" /> and <see cref="IScintillaProperties{TColor}.EdgeColumn" /> are completely independent of this mode.</remarks>
-    MultiLine = ScintillaConstants.EDGE_MULTILINE
+    /// <remarks><see cref="Line" /> and <see cref="IScintillaProperties.EdgeColumn" /> are completely independent of this mode.</remarks>
+    MultiLine = ScintillaConstants.EDGE_MULTILINE,
 }

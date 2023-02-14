@@ -28,6 +28,7 @@ using System.Text;
 using ScintillaNet.Abstractions.Enumerations;
 using ScintillaNet.Abstractions.Interfaces;
 using ScintillaNet.Abstractions.Interfaces.Collections;
+using ScintillaNet.Abstractions.Interfaces.Methods;
 using ScintillaNet.Abstractions.Structs;
 using static ScintillaNet.Abstractions.ScintillaConstants;
 
@@ -39,7 +40,7 @@ namespace ScintillaNet.Abstractions.Extensions;
 public static class PropertyHelpers
 {
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.BiDirectionality"/> property.
+    /// A get method for the <see cref="IScintillaProperties.BiDirectionality"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="BiDirectionalDisplayType" />.</returns>
@@ -47,7 +48,7 @@ public static class PropertyHelpers
         (BiDirectionalDisplayType)scintilla.DirectMessage(SCI_GETBIDIRECTIONAL).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.BiDirectionality"/> property.
+    /// A set method for the <see cref="IScintillaProperties.BiDirectionality"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -94,7 +95,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AdditionalCaretsBlink"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AdditionalCaretsBlink"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -102,7 +103,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETADDITIONALCARETSBLINK) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AdditionalCaretsBlink"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AdditionalCaretsBlink"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -113,7 +114,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AdditionalCaretsVisible"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AdditionalCaretsVisible"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -121,7 +122,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETADDITIONALCARETSVISIBLE) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AdditionalCaretsVisible"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AdditionalCaretsVisible"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -132,7 +133,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AdditionalSelAlpha"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AdditionalSelAlpha"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -140,7 +141,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETADDITIONALSELALPHA).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AdditionalSelAlpha"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AdditionalSelAlpha"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -151,7 +152,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AdditionalSelectionTyping"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AdditionalSelectionTyping"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -159,7 +160,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETADDITIONALSELECTIONTYPING) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AdditionalSelectionTyping"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AdditionalSelectionTyping"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -170,7 +171,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AnchorPosition"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AnchorPosition"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -182,7 +183,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AnchorPosition"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AnchorPosition"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -195,7 +196,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AnnotationVisible"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AnnotationVisible"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Annotation" />.</returns>
@@ -203,7 +204,7 @@ public static class PropertyHelpers
         (Annotation)scintilla.DirectMessage(SCI_ANNOTATIONGETVISIBLE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AnnotationVisible"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AnnotationVisible"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -214,7 +215,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCActive"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCActive"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -222,7 +223,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCACTIVE) != IntPtr.Zero;
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCAutoHide"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCAutoHide"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -230,7 +231,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETAUTOHIDE) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCAutoHide"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCAutoHide"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -241,7 +242,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCCancelAtStart"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCCancelAtStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -249,7 +250,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETCANCELATSTART) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCCancelAtStart"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCCancelAtStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -260,7 +261,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCCurrent"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCCurrent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -269,7 +270,7 @@ public static class PropertyHelpers
 
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCChooseSingle"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCChooseSingle"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -277,7 +278,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETCHOOSESINGLE) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCChooseSingle"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCChooseSingle"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -288,7 +289,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCDropRestOfWord"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCDropRestOfWord"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -296,7 +297,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETDROPRESTOFWORD) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCDropRestOfWord"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCDropRestOfWord"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -307,7 +308,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCIgnoreCase"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCIgnoreCase"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -315,7 +316,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETIGNORECASE) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCIgnoreCase"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCIgnoreCase"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -326,7 +327,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCMaxHeight"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCMaxHeight"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -334,7 +335,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETMAXHEIGHT).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCMaxHeight"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCMaxHeight"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -345,7 +346,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCMaxWidth"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCMaxWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -353,7 +354,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_AUTOCGETMAXWIDTH).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCMaxWidth"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCMaxWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -365,7 +366,7 @@ public static class PropertyHelpers
 
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCOrder"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCOrder"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Order" />.</returns>
@@ -373,7 +374,7 @@ public static class PropertyHelpers
         (Order)scintilla.DirectMessage(SCI_AUTOCGETORDER).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCOrder"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCOrder"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -384,7 +385,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCPosStart"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCPosStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -398,7 +399,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCSeparator"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCSeparator"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="char" />.</returns>
@@ -409,7 +410,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCSeparator"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCSeparator"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -425,7 +426,7 @@ public static class PropertyHelpers
 
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutoCTypeSeparator"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutoCTypeSeparator"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="char" />.</returns>
@@ -436,7 +437,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutoCTypeSeparator"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutoCTypeSeparator"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -452,14 +453,14 @@ public static class PropertyHelpers
 
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.AutomaticFold"/> property.
+    /// A get method for the <see cref="IScintillaProperties.AutomaticFold"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="AutomaticFold" />.</returns>
     public static AutomaticFold AutomaticFoldGet(this IScintillaApi scintilla) => (AutomaticFold)scintilla.DirectMessage(SCI_GETAUTOMATICFOLD);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.AutomaticFold"/> property.
+    /// A set method for the <see cref="IScintillaProperties.AutomaticFold"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -471,7 +472,7 @@ public static class PropertyHelpers
 
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.BackspaceUnIndents"/> property.
+    /// A get method for the <see cref="IScintillaProperties.BackspaceUnIndents"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -479,7 +480,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETBACKSPACEUNINDENTS) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.BackspaceUnIndents"/> property.
+    /// A set method for the <see cref="IScintillaProperties.BackspaceUnIndents"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -490,14 +491,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.BufferedDraw"/> property.
+    /// A get method for the <see cref="IScintillaProperties.BufferedDraw"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
     public static bool BufferedDrawGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_GETBUFFEREDDRAW) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.BufferedDraw"/> property.
+    /// A set method for the <see cref="IScintillaProperties.BufferedDraw"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -508,7 +509,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CallTipActive"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CallTipActive"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -516,7 +517,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_CALLTIPACTIVE) != IntPtr.Zero;
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CanPaste"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CanPaste"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -524,14 +525,14 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_CANPASTE) != IntPtr.Zero;
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CanRedo"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CanRedo"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
     public static bool CanRedoGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_CANREDO) != IntPtr.Zero;
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CanUndo"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CanUndo"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -592,14 +593,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretLineBackColorAlpha"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretLineBackColorAlpha"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
     public static int CaretLineBackColorAlphaGet(this IScintillaApi scintilla)  => scintilla.DirectMessage(SCI_GETCARETLINEBACKALPHA).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretLineBackColorAlpha"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretLineBackColorAlpha"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -610,7 +611,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretLineFrame"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretLineFrame"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -618,7 +619,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETCARETLINEFRAME).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretLineFrame"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretLineFrame"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -629,7 +630,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretLineVisible"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretLineVisible"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -637,7 +638,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETCARETLINEVISIBLE) != IntPtr.Zero; 
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretLineVisible"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretLineVisible"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -648,7 +649,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretLineVisibleAlways"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretLineVisibleAlways"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -656,7 +657,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETCARETLINEVISIBLEALWAYS) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretLineVisibleAlways"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretLineVisibleAlways"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -667,7 +668,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretLineLayer"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretLineLayer"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Layer" />.</returns>
@@ -675,7 +676,7 @@ public static class PropertyHelpers
         (Layer)scintilla.DirectMessage(SCI_GETCARETLINELAYER).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretLineLayer"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretLineLayer"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -686,7 +687,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretPeriod"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretPeriod"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -694,7 +695,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETCARETPERIOD).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretPeriod"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretPeriod"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -705,7 +706,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretStyle"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretStyle"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="CaretStyle" />.</returns>
@@ -713,7 +714,7 @@ public static class PropertyHelpers
         (CaretStyle)scintilla.DirectMessage(SCI_GETCARETSTYLE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretStyle"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretStyle"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -724,14 +725,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CaretWidth"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CaretWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
     public static int CaretWidthGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_GETCARETWIDTH).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CaretWidth"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CaretWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -742,7 +743,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CurrentLine"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CurrentLine"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -754,7 +755,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.CurrentPosition"/> property.
+    /// A get method for the <see cref="IScintillaProperties.CurrentPosition"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -766,7 +767,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.CurrentPosition"/> property.
+    /// A set method for the <see cref="IScintillaProperties.CurrentPosition"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -779,7 +780,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.DistanceToSecondaryStyles"/> property.
+    /// A get method for the <see cref="IScintillaProperties.DistanceToSecondaryStyles"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -787,26 +788,26 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_DISTANCETOSECONDARYSTYLES).ToInt32();
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Document"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Document"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Document" />.</returns>
     public static Document DocumentGet(this IScintillaApi scintilla)
     {
         var ptr = scintilla.DirectMessage(SCI_GETDOCPOINTER);
-        return new Document { Value = ptr };
+        return new Document { Value = ptr, };
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.Document"/> property.
+    /// A set method for the <see cref="IScintillaProperties.Document"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
-    /// <param name="eolMode">The <see cref="IScintillaProperties{TColor}.EolMode"/> property value.</param>
-    /// <param name="useTabs">The <see cref="IScintillaProperties{TColor}.UseTabs"/> property value.</param>
-    /// <param name="tabWidth">The <see cref="IScintillaProperties{TColor}.TabWidth"/> property value.</param>
-    /// <param name="indentWidth">The <see cref="IScintillaProperties{TColor}.IndentWidth"/> property value.</param>
+    /// <param name="eolMode">The <see cref="IScintillaProperties.EolMode"/> property value.</param>
+    /// <param name="useTabs">The <see cref="IScintillaProperties.UseTabs"/> property value.</param>
+    /// <param name="tabWidth">The <see cref="IScintillaProperties.TabWidth"/> property value.</param>
+    /// <param name="indentWidth">The <see cref="IScintillaProperties.IndentWidth"/> property value.</param>
     public static void DocumentSet(this IScintillaApi scintilla, Document value, IScintillaLineCollectionGeneral lines, Eol eolMode, bool useTabs, int tabWidth, int indentWidth)
     {
         var ptr = value.Value;
@@ -847,7 +848,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.EdgeColumn"/> property.
+    /// A get method for the <see cref="IScintillaProperties.EdgeColumn"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -855,7 +856,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETEDGECOLUMN).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.EdgeColumn"/> property.
+    /// A set method for the <see cref="IScintillaProperties.EdgeColumn"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -866,7 +867,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.EdgeMode"/> property.
+    /// A get method for the <see cref="IScintillaProperties.EdgeMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="EdgeMode" />.</returns>
@@ -874,7 +875,7 @@ public static class PropertyHelpers
         (EdgeMode)scintilla.DirectMessage(SCI_GETEDGEMODE);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.EdgeMode"/> property.
+    /// A set method for the <see cref="IScintillaProperties.EdgeMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -897,14 +898,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.EndAtLastLine"/> property.
+    /// A get method for the <see cref="IScintillaProperties.EndAtLastLine"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
     public static bool EndAtLastLineGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_GETENDATLASTLINE) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.EndAtLastLine"/> property.
+    /// A set method for the <see cref="IScintillaProperties.EndAtLastLine"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -916,14 +917,14 @@ public static class PropertyHelpers
 
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.EolMode"/> property.
+    /// A get method for the <see cref="IScintillaProperties.EolMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Eol" />.</returns>
     public static Eol EolModeGet(this IScintillaApi scintilla) => (Eol)scintilla.DirectMessage(SCI_GETEOLMODE);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.EolMode"/> property.
+    /// A set method for the <see cref="IScintillaProperties.EolMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -934,7 +935,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ExtraAscent"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ExtraAscent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -942,7 +943,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETEXTRAASCENT).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ExtraAscent"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ExtraAscent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -952,7 +953,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ExtraDescent"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ExtraDescent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -960,7 +961,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETEXTRADESCENT).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ExtraDescent"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ExtraDescent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -970,7 +971,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.FirstVisibleLine"/> property.
+    /// A get method for the <see cref="IScintillaProperties.FirstVisibleLine"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -978,7 +979,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETFIRSTVISIBLELINE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.FirstVisibleLine"/> property.
+    /// A set method for the <see cref="IScintillaProperties.FirstVisibleLine"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -989,7 +990,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.FontQuality"/> property.
+    /// A get method for the <see cref="IScintillaProperties.FontQuality"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="FontQuality" />.</returns>
@@ -997,7 +998,7 @@ public static class PropertyHelpers
         (FontQuality)scintilla.DirectMessage(SCI_GETFONTQUALITY);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.FontQuality"/> property.
+    /// A set method for the <see cref="IScintillaProperties.FontQuality"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1008,14 +1009,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.HighlightGuide"/> property.
+    /// A get method for the <see cref="IScintillaProperties.HighlightGuide"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
     public static int HighlightGuideGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_GETHIGHLIGHTGUIDE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.HighlightGuide"/> property.
+    /// A set method for the <see cref="IScintillaProperties.HighlightGuide"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1026,7 +1027,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.HScrollBar"/> property.
+    /// A get method for the <see cref="IScintillaProperties.HScrollBar"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1034,7 +1035,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETHSCROLLBAR) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.HScrollBar"/> property.
+    /// A set method for the <see cref="IScintillaProperties.HScrollBar"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1045,7 +1046,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.IdleStyling"/> property.
+    /// A get method for the <see cref="IScintillaProperties.IdleStyling"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="IdleStyling" />.</returns>
@@ -1053,7 +1054,7 @@ public static class PropertyHelpers
         (IdleStyling)scintilla.DirectMessage(SCI_GETIDLESTYLING);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.IdleStyling"/> property.
+    /// A set method for the <see cref="IScintillaProperties.IdleStyling"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1064,7 +1065,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.IndentWidth"/> property.
+    /// A get method for the <see cref="IScintillaProperties.IndentWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1072,7 +1073,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETINDENT).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.IndentWidth"/> property.
+    /// A set method for the <see cref="IScintillaProperties.IndentWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1083,14 +1084,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.IndentationGuides"/> property.
+    /// A get method for the <see cref="IScintillaProperties.IndentationGuides"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="IndentView" />.</returns>
     public static IndentView IndentationGuidesGet(this IScintillaApi scintilla) => (IndentView)scintilla.DirectMessage(SCI_GETINDENTATIONGUIDES);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.IndentationGuides"/> property.
+    /// A set method for the <see cref="IScintillaProperties.IndentationGuides"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1101,7 +1102,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.IndicatorCurrent"/> property.
+    /// A get method for the <see cref="IScintillaProperties.IndicatorCurrent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1109,7 +1110,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETINDICATORCURRENT).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.IndicatorCurrent"/> property.
+    /// A set method for the <see cref="IScintillaProperties.IndicatorCurrent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1121,7 +1122,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.IndicatorValue"/> property.
+    /// A get method for the <see cref="IScintillaProperties.IndicatorValue"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1129,7 +1130,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETINDICATORVALUE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.IndicatorValue"/> property.
+    /// A set method for the <see cref="IScintillaProperties.IndicatorValue"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1139,7 +1140,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.InternalFocusFlag"/> property.
+    /// A get method for the <see cref="IScintillaProperties.InternalFocusFlag"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1147,7 +1148,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETFOCUS) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.InternalFocusFlag"/> property.
+    /// A set method for the <see cref="IScintillaProperties.InternalFocusFlag"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1158,7 +1159,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.LexerName"/> property.
+    /// A get method for the <see cref="IScintillaProperties.LexerName"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lexerName">The private lexer name field value.</param>
@@ -1166,7 +1167,7 @@ public static class PropertyHelpers
     public static string? LexerNameGet(this IScintillaApi scintilla, string? lexerName) => lexerName;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.LexerName"/> property.
+    /// A set method for the <see cref="IScintillaProperties.LexerName"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lexilla">The Lexilla instance.</param>
@@ -1217,7 +1218,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Lexer"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Lexer"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lexerName">The private lexer name field value.</param>
@@ -1239,7 +1240,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.Lexer"/> property.
+    /// A set method for the <see cref="IScintillaProperties.Lexer"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lexilla">The Lexilla instance.</param>
@@ -1272,7 +1273,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.LexerLanguage"/> property.
+    /// A get method for the <see cref="IScintillaProperties.LexerLanguage"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="string" />.</returns>
@@ -1293,7 +1294,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.LexerLanguage"/> property.
+    /// A set method for the <see cref="IScintillaProperties.LexerLanguage"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1314,7 +1315,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.LineEndTypesActive"/> property.
+    /// A get method for the <see cref="IScintillaProperties.LineEndTypesActive"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="LineEndType" />.</returns>
@@ -1322,7 +1323,7 @@ public static class PropertyHelpers
         (LineEndType)scintilla.DirectMessage(SCI_GETLINEENDTYPESACTIVE);
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.LineEndTypesAllowed"/> property.
+    /// A get method for the <see cref="IScintillaProperties.LineEndTypesAllowed"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="LineEndType" />.</returns>
@@ -1330,7 +1331,7 @@ public static class PropertyHelpers
         (LineEndType)scintilla.DirectMessage(SCI_GETLINEENDTYPESALLOWED);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.LineEndTypesAllowed"/> property.
+    /// A set method for the <see cref="IScintillaProperties.LineEndTypesAllowed"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1341,7 +1342,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.LineEndTypesSupported"/> property.
+    /// A get method for the <see cref="IScintillaProperties.LineEndTypesSupported"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="LineEndType" />.</returns>
@@ -1349,7 +1350,7 @@ public static class PropertyHelpers
         (LineEndType)scintilla.DirectMessage(SCI_GETLINEENDTYPESSUPPORTED);
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.LinesOnScreen"/> property.
+    /// A get method for the <see cref="IScintillaProperties.LinesOnScreen"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1357,7 +1358,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_LINESONSCREEN).ToInt32();
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.MainSelection"/> property.
+    /// A get method for the <see cref="IScintillaProperties.MainSelection"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1365,7 +1366,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETMAINSELECTION).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.MainSelection"/> property.
+    /// A set method for the <see cref="IScintillaProperties.MainSelection"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1376,14 +1377,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Modified"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Modified"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
     public static bool ModifiedGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_GETMODIFY) != IntPtr.Zero;
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.MouseDwellTime"/> property.
+    /// A get method for the <see cref="IScintillaProperties.MouseDwellTime"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1391,7 +1392,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETMOUSEDWELLTIME).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.MouseDwellTime"/> property.
+    /// A set method for the <see cref="IScintillaProperties.MouseDwellTime"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1402,7 +1403,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.MouseSelectionRectangularSwitch"/> property.
+    /// A get method for the <see cref="IScintillaProperties.MouseSelectionRectangularSwitch"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1410,7 +1411,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETMOUSESELECTIONRECTANGULARSWITCH) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.MouseSelectionRectangularSwitch"/> property.
+    /// A set method for the <see cref="IScintillaProperties.MouseSelectionRectangularSwitch"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1421,7 +1422,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.MultipleSelection"/> property.
+    /// A get method for the <see cref="IScintillaProperties.MultipleSelection"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1429,7 +1430,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETMULTIPLESELECTION) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.MultipleSelection"/> property.
+    /// A set method for the <see cref="IScintillaProperties.MultipleSelection"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1440,7 +1441,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.MultiPaste"/> property.
+    /// A get method for the <see cref="IScintillaProperties.MultiPaste"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="MultiPaste" />.</returns>
@@ -1448,7 +1449,7 @@ public static class PropertyHelpers
         (MultiPaste)scintilla.DirectMessage(SCI_GETMULTIPASTE);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.MultiPaste"/> property.
+    /// A set method for the <see cref="IScintillaProperties.MultiPaste"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1459,7 +1460,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.OverType"/> property.
+    /// A get method for the <see cref="IScintillaProperties.OverType"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1467,7 +1468,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETOVERTYPE) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.OverType"/> property.
+    /// A set method for the <see cref="IScintillaProperties.OverType"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1478,7 +1479,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.PasteConvertEndings"/> property.
+    /// A get method for the <see cref="IScintillaProperties.PasteConvertEndings"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1486,7 +1487,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETPASTECONVERTENDINGS) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.PasteConvertEndings"/> property.
+    /// A set method for the <see cref="IScintillaProperties.PasteConvertEndings"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1497,7 +1498,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.PhasesDraw"/> property.
+    /// A get method for the <see cref="IScintillaProperties.PhasesDraw"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Phases" />.</returns>
@@ -1505,7 +1506,7 @@ public static class PropertyHelpers
         (Phases)scintilla.DirectMessage(SCI_GETPHASESDRAW);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.PhasesDraw"/> property.
+    /// A set method for the <see cref="IScintillaProperties.PhasesDraw"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1516,7 +1517,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ReadOnly"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ReadOnly"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1524,7 +1525,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETREADONLY) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ReadOnly"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ReadOnly"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1535,7 +1536,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionAnchor"/> property.
+    /// A get method for the <see cref="IScintillaProperties.RectangularSelectionAnchor"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -1552,7 +1553,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionAnchor"/> property.
+    /// A set method for the <see cref="IScintillaProperties.RectangularSelectionAnchor"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1565,7 +1566,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionAnchorVirtualSpace"/> property.
+    /// A get method for the <see cref="IScintillaProperties.RectangularSelectionAnchorVirtualSpace"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1573,7 +1574,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETRECTANGULARSELECTIONANCHORVIRTUALSPACE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionAnchorVirtualSpace"/> property.
+    /// A set method for the <see cref="IScintillaProperties.RectangularSelectionAnchorVirtualSpace"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1584,7 +1585,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionCaret"/> property.
+    /// A get method for the <see cref="IScintillaProperties.RectangularSelectionCaret"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -1601,7 +1602,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionCaret"/> property.
+    /// A set method for the <see cref="IScintillaProperties.RectangularSelectionCaret"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1614,14 +1615,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionCaretVirtualSpace"/> property.
+    /// A get method for the <see cref="IScintillaProperties.RectangularSelectionCaretVirtualSpace"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
     public static int RectangularSelectionCaretVirtualSpaceGet(this IScintillaApi scintilla) => scintilla.DirectMessage(SCI_GETRECTANGULARSELECTIONCARETVIRTUALSPACE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.RectangularSelectionCaretVirtualSpace"/> property.
+    /// A set method for the <see cref="IScintillaProperties.RectangularSelectionCaretVirtualSpace"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1632,14 +1633,14 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.SelectionLayer"/> property.
+    /// A get method for the <see cref="IScintillaProperties.SelectionLayer"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Layer" />.</returns>
     public static Layer SelectionLayerGet(this IScintillaApi scintilla) => (Layer)scintilla.DirectMessage(SCI_GETSELECTIONLAYER).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.SelectionLayer"/> property.
+    /// A set method for the <see cref="IScintillaProperties.SelectionLayer"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1650,7 +1651,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ScrollWidth"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ScrollWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1658,7 +1659,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETSCROLLWIDTH).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ScrollWidth"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ScrollWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1668,7 +1669,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ScrollWidthTracking"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ScrollWidthTracking"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1676,7 +1677,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETSCROLLWIDTHTRACKING) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ScrollWidthTracking"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ScrollWidthTracking"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1687,7 +1688,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.SearchFlags"/> property.
+    /// A get method for the <see cref="IScintillaProperties.SearchFlags"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="SearchFlags" />.</returns>
@@ -1695,7 +1696,7 @@ public static class PropertyHelpers
         (SearchFlags)scintilla.DirectMessage(SCI_GETSEARCHFLAGS).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.SearchFlags"/> property.
+    /// A set method for the <see cref="IScintillaProperties.SearchFlags"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1706,7 +1707,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.SelectedText"/> property.
+    /// A get method for the <see cref="IScintillaProperties.SelectedText"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="string" />.</returns>
@@ -1729,7 +1730,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.SelectionEnd"/> property.
+    /// A get method for the <see cref="IScintillaProperties.SelectionEnd"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -1741,7 +1742,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.SelectionEnd"/> property.
+    /// A set method for the <see cref="IScintillaProperties.SelectionEnd"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1754,7 +1755,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.SelectionEolFilled"/> property.
+    /// A get method for the <see cref="IScintillaProperties.SelectionEolFilled"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1762,7 +1763,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETSELEOLFILLED) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.SelectionEolFilled"/> property.
+    /// A set method for the <see cref="IScintillaProperties.SelectionEolFilled"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1773,7 +1774,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.SelectionStart"/> property.
+    /// A get method for the <see cref="IScintillaProperties.SelectionStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -1785,7 +1786,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.SelectionStart"/> property.
+    /// A set method for the <see cref="IScintillaProperties.SelectionStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1798,7 +1799,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Status"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Status"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Status" />.</returns>
@@ -1806,7 +1807,7 @@ public static class PropertyHelpers
         (Status)scintilla.DirectMessage(SCI_GETSTATUS);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.Status"/> property.
+    /// A set method for the <see cref="IScintillaProperties.Status"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1817,7 +1818,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.TabDrawMode"/> property.
+    /// A get method for the <see cref="IScintillaProperties.TabDrawMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="TabDrawMode" />.</returns>
@@ -1825,7 +1826,7 @@ public static class PropertyHelpers
         (TabDrawMode)scintilla.DirectMessage(SCI_GETTABDRAWMODE);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.TabDrawMode"/> property.
+    /// A set method for the <see cref="IScintillaProperties.TabDrawMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1836,7 +1837,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.TabIndents"/> property.
+    /// A get method for the <see cref="IScintillaProperties.TabIndents"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -1844,7 +1845,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETTABINDENTS) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.TabIndents"/> property.
+    /// A set method for the <see cref="IScintillaProperties.TabIndents"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1855,7 +1856,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.TabWidth"/> property.
+    /// A get method for the <see cref="IScintillaProperties.TabWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -1863,7 +1864,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETTABWIDTH).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.TabWidth"/> property.
+    /// A set method for the <see cref="IScintillaProperties.TabWidth"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1873,7 +1874,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.TargetEnd"/> property.
+    /// A get method for the <see cref="IScintillaProperties.TargetEnd"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -1887,7 +1888,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.TargetEnd"/> property.
+    /// A set method for the <see cref="IScintillaProperties.TargetEnd"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1900,7 +1901,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.TargetStart"/> property.
+    /// A get method for the <see cref="IScintillaProperties.TargetStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="lines">The line collection of the Scintilla control.</param>
@@ -1914,7 +1915,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.TargetStart"/> property.
+    /// A set method for the <see cref="IScintillaProperties.TargetStart"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1927,7 +1928,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.TargetText"/> property.
+    /// A get method for the <see cref="IScintillaProperties.TargetText"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="string" />.</returns>
@@ -1948,7 +1949,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Technology"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Technology"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="Technology" />.</returns>
@@ -1956,7 +1957,7 @@ public static class PropertyHelpers
         (Technology)scintilla.DirectMessage(SCI_GETTECHNOLOGY);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.Technology"/> property.
+    /// A set method for the <see cref="IScintillaProperties.Technology"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -1967,7 +1968,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Text"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Text"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="string" />.</returns>
@@ -1987,13 +1988,13 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.Text"/> property.
+    /// A set method for the <see cref="IScintillaProperties.Text"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
     /// <param name="designMode">A value indicating whether the design mode is active. NOTE: Windows only!</param>
-    /// <param name="readOnly">The <see cref="IScintillaProperties{TColor}.ReadOnly"/> property value.</param>
-    /// <param name="appendTextAction">A <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.AppendText"/> delegate.</param>
+    /// <param name="readOnly">The <see cref="IScintillaProperties.ReadOnly"/> property value.</param>
+    /// <param name="appendTextAction">A <see cref="IScintillaMethods.AppendText"/> delegate.</param>
     public static unsafe void TextSet(this IScintillaApi scintilla, string value, bool designMode, bool readOnly,
         Action<string> appendTextAction)
     {
@@ -2040,7 +2041,7 @@ public static class PropertyHelpers
         lines.TextLength;
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.UseTabs"/> property.
+    /// A get method for the <see cref="IScintillaProperties.UseTabs"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -2048,7 +2049,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETUSETABS) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.UseTabs"/> property.
+    /// A set method for the <see cref="IScintillaProperties.UseTabs"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2059,7 +2060,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ViewEol"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ViewEol"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -2067,7 +2068,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETVIEWEOL) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ViewEol"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ViewEol"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2078,7 +2079,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.ViewWhitespace"/> property.
+    /// A get method for the <see cref="IScintillaProperties.ViewWhitespace"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="WhitespaceMode" />.</returns>
@@ -2086,7 +2087,7 @@ public static class PropertyHelpers
         (WhitespaceMode)scintilla.DirectMessage(SCI_GETVIEWWS);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.ViewWhitespace"/> property.
+    /// A set method for the <see cref="IScintillaProperties.ViewWhitespace"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2097,7 +2098,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.VirtualSpaceOptions"/> property.
+    /// A get method for the <see cref="IScintillaProperties.VirtualSpaceOptions"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="VirtualSpace" />.</returns>
@@ -2105,7 +2106,7 @@ public static class PropertyHelpers
         (VirtualSpace)scintilla.DirectMessage(SCI_GETVIRTUALSPACEOPTIONS);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.VirtualSpaceOptions"/> property.
+    /// A set method for the <see cref="IScintillaProperties.VirtualSpaceOptions"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2116,7 +2117,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.VScrollBar"/> property.
+    /// A get method for the <see cref="IScintillaProperties.VScrollBar"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="bool" />.</returns>
@@ -2124,7 +2125,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETVSCROLLBAR) != IntPtr.Zero;
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.VScrollBar"/> property.
+    /// A set method for the <see cref="IScintillaProperties.VScrollBar"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2135,7 +2136,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WhitespaceSize"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WhitespaceSize"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -2143,7 +2144,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETWHITESPACESIZE).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WhitespaceSize"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WhitespaceSize"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2153,7 +2154,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WordChars"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WordChars"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="string" />.</returns>
@@ -2169,7 +2170,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WordChars"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WordChars"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2191,7 +2192,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WrapIndentMode"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WrapIndentMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="WrapIndentMode" />.</returns>
@@ -2199,7 +2200,7 @@ public static class PropertyHelpers
         (WrapIndentMode)scintilla.DirectMessage(SCI_GETWRAPINDENTMODE);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WrapIndentMode"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WrapIndentMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2210,7 +2211,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WrapMode"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WrapMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="WrapMode" />.</returns>
@@ -2218,7 +2219,7 @@ public static class PropertyHelpers
         (WrapMode)scintilla.DirectMessage(SCI_GETWRAPMODE);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WrapMode"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WrapMode"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2229,7 +2230,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WrapStartIndent"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WrapStartIndent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -2237,7 +2238,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETWRAPSTARTINDENT).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WrapStartIndent"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WrapStartIndent"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2248,7 +2249,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WrapVisualFlags"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WrapVisualFlags"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="WrapVisualFlags" />.</returns>
@@ -2256,7 +2257,7 @@ public static class PropertyHelpers
         (WrapVisualFlags)scintilla.DirectMessage(SCI_GETWRAPVISUALFLAGS);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WrapVisualFlags"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WrapVisualFlags"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2267,7 +2268,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.WrapVisualFlagLocation"/> property.
+    /// A get method for the <see cref="IScintillaProperties.WrapVisualFlagLocation"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="WrapVisualFlagLocation" />.</returns>
@@ -2275,7 +2276,7 @@ public static class PropertyHelpers
         (WrapVisualFlagLocation)scintilla.DirectMessage(SCI_GETWRAPVISUALFLAGSLOCATION);
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.WrapVisualFlagLocation"/> property.
+    /// A set method for the <see cref="IScintillaProperties.WrapVisualFlagLocation"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2286,7 +2287,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.XOffset"/> property.
+    /// A get method for the <see cref="IScintillaProperties.XOffset"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -2294,7 +2295,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETXOFFSET).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.XOffset"/> property.
+    /// A set method for the <see cref="IScintillaProperties.XOffset"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>
@@ -2305,7 +2306,7 @@ public static class PropertyHelpers
     }
 
     /// <summary>
-    /// A get method for the <see cref="IScintillaProperties{TColor}.Zoom"/> property.
+    /// A get method for the <see cref="IScintillaProperties.Zoom"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns><see cref="int" />.</returns>
@@ -2313,7 +2314,7 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_GETZOOM).ToInt32();
 
     /// <summary>
-    /// A set method for the <see cref="IScintillaProperties{TColor}.Zoom"/> property.
+    /// A set method for the <see cref="IScintillaProperties.Zoom"/> property.
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <param name="value">The property value.</param>

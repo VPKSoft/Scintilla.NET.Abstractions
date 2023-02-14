@@ -23,5 +23,5 @@ public enum Annotation
     /// <summary>
     /// Annotations are indented to match the text.
     /// </summary>
-    Indented = ScintillaConstants.ANNOTATION_INDENTED
+    Indented = ScintillaConstants.ANNOTATION_INDENTED,
 }

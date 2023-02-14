@@ -35,7 +35,7 @@ public abstract class LoaderBase : ILoader
     public virtual Document ConvertToDocument()
     {
         var ptr = IntPtr.Size == 4 ? loader32.ConvertToDocument(self) : loader64.ConvertToDocument(self);
-        var document = new Document { Value = ptr };
+        var document = new Document { Value = ptr, };
         return document;
     }
 

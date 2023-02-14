@@ -1,11 +1,13 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
 /// Line endings types supported by lexers and allowed by a Scintilla control.
 /// </summary>
-/// <seealso cref="IScintillaProperties{TColor}.LineEndTypesSupported" />
-/// <seealso cref="IScintillaProperties{TColor}.LineEndTypesAllowed" />
-/// <seealso cref="IScintillaProperties{TColor}.LineEndTypesActive" />
+/// <seealso cref="IScintillaProperties.LineEndTypesSupported" />
+/// <seealso cref="IScintillaProperties.LineEndTypesAllowed" />
+/// <seealso cref="IScintillaProperties.LineEndTypesActive" />
 [Flags]
 public enum LineEndType
 {
@@ -17,5 +19,5 @@ public enum LineEndType
     /// <summary>
     /// Unicode line endings. Next Line (0x0085); Line Separator (0x2028); Paragraph Separator (0x2029).
     /// </summary>
-    Unicode = ScintillaConstants.SC_LINE_END_TYPE_UNICODE
+    Unicode = ScintillaConstants.SC_LINE_END_TYPE_UNICODE,
 }

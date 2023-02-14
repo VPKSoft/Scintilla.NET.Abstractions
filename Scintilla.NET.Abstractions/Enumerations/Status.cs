@@ -1,7 +1,9 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
-/// Possible status codes returned by the <see cref="Scintilla.Status" /> property.
+/// Possible status codes returned by the <see cref="IScintillaProperties.Status" /> property.
 /// </summary>
 public enum Status
 {
@@ -23,5 +25,5 @@ public enum Status
     /// <summary>
     /// Regular expression is invalid.
     /// </summary>
-    WarnRegex = ScintillaConstants.SC_STATUS_WARN_REGEX
+    WarnRegex = ScintillaConstants.SC_STATUS_WARN_REGEX,
 }

@@ -18,5 +18,5 @@ public enum FoldDisplayText
     /// <summary>
     /// Display the text tags with a box drawn around them.
     /// </summary>
-    Boxed = ScintillaConstants.SC_FOLDDISPLAYTEXT_BOXED
+    Boxed = ScintillaConstants.SC_FOLDDISPLAYTEXT_BOXED,
 }

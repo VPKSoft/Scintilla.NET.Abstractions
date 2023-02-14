@@ -20,5 +20,5 @@ public enum IndicatorFlags
     /// and will use that instead of the value specified in the <see cref="IScintillaIndicator{TColor}.ForeColor" /> property. This allows
     /// an indicator to display more than one color.
     /// </summary>
-    ValueFore = ScintillaConstants.SC_INDICFLAG_VALUEFORE
+    ValueFore = ScintillaConstants.SC_INDICFLAG_VALUEFORE,
 }

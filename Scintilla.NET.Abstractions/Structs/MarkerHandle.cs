@@ -1,7 +1,7 @@
 ﻿namespace ScintillaNet.Abstractions.Structs;
 
 /// <summary>
-/// A <see cref="Marker" /> handle.
+/// A Marker handle.
 /// </summary>
 /// <remarks>
 /// This is an opaque type, meaning it can be used by a Scintilla control but

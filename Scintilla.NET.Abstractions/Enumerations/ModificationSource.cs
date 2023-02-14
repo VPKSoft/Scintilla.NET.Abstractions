@@ -18,5 +18,5 @@ public enum ModificationSource
     /// <summary>
     /// Modification is the result of a redo operation.
     /// </summary>
-    Redo = ScintillaConstants.SC_PERFORMED_REDO
+    Redo = ScintillaConstants.SC_PERFORMED_REDO,
 }

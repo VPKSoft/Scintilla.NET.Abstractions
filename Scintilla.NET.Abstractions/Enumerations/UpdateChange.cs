@@ -1,7 +1,9 @@
-﻿namespace ScintillaNet.Abstractions.Enumerations;
+﻿using ScintillaNet.Abstractions.Interfaces;
+
+namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
-/// Specifies the change that triggered a <see cref="Scintilla.UpdateUI" /> event.
+/// Specifies the change that triggered a <see cref="IScintillaEvents{TKeys, TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs, TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs, TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs, TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs}.UpdateUi" /> event.
 /// </summary>
 /// <remarks>This enumeration has a FlagsAttribute attribute that allows a bitwise combination of its member values.</remarks>
 [Flags]
@@ -25,5 +27,5 @@ public enum UpdateChange
     /// <summary>
     /// Scrolled horizontally.
     /// </summary>
-    HScroll = ScintillaConstants.SC_UPDATE_H_SCROLL
+    HScroll = ScintillaConstants.SC_UPDATE_H_SCROLL,
 }

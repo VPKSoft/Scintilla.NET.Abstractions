@@ -27,5 +27,5 @@ public enum AutomaticFold
     /// <summary>
     /// Show lines as needed when the fold structure is changed.
     /// </summary>
-    Change = ScintillaConstants.SC_AUTOMATICFOLD_CHANGE
+    Change = ScintillaConstants.SC_AUTOMATICFOLD_CHANGE,
 }

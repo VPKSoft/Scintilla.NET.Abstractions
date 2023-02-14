@@ -1,5 +1,6 @@
 ﻿using ScintillaNet.Abstractions.Collections;
 using ScintillaNet.Abstractions.Enumerations;
+using ScintillaNet.Abstractions.Interfaces.Methods;
 using ScintillaNet.Abstractions.Structs;
 
 namespace ScintillaNet.Abstractions.Interfaces.Collections;
@@ -100,8 +101,8 @@ public interface IScintillaLine
     /// Toggles the folding state of the line; expanding or contracting all child lines, and specifies the text tag to display to the right of the fold.
     /// </summary>
     /// <param name="text">The text tag to show to the right of the folded text.</param>
-    /// <remarks>The display of fold text tags are determined by the <see cref="IScintillaMethods{TColor,TKeys,TBitmap}.FoldDisplayTextSetStyle" /> method.</remarks>
-    /// <seealso cref="IScintillaMethods{TColor,TKeys,TBitmap}.FoldDisplayTextSetStyle" />
+    /// <remarks>The display of fold text tags are determined by the <see cref="IScintillaMethods.FoldDisplayTextSetStyle" /> method.</remarks>
+    /// <seealso cref="IScintillaMethods.FoldDisplayTextSetStyle" />
     void ToggleFoldShowText(string text);
 
     #endregion Methods
@@ -161,7 +162,7 @@ public interface IScintillaLine
     /// taking into consideration folded (hidden) lines.
     /// </summary>
     /// <returns>The zero-based display line index.</returns>
-    /// <seealso cref="IScintillaMethods{TColor,TKeys,TBitmap}.DocLineFromVisible" />
+    /// <seealso cref="IScintillaMethods.DocLineFromVisible" />
     int DisplayIndex { get; }
 
     /// <summary>
@@ -273,8 +274,8 @@ public interface IScintillaLine
     /// Gets a value indicating whether the line is visible.
     /// </summary>
     /// <returns>true if the line is visible; otherwise, false.</returns>
-    /// <seealso cref="IScintillaMethods{TColor,TKeys,TBitmap}.ShowLines" />
-    /// <seealso cref="IScintillaMethods{TColor,TKeys,TBitmap}.HideLines" />
+    /// <seealso cref="IScintillaMethods.ShowLines" />
+    /// <seealso cref="IScintillaMethods.HideLines" />
     bool Visible { get; }
 
     /// <summary>

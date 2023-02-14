@@ -15,5 +15,5 @@ public enum MarginOptions
     /// <summary>
     /// Lines selected by clicking on the margin will select only the subline of wrapped text.
     /// </summary>
-    SublineSelect = ScintillaConstants.SC_MARGINOPTION_SUBLINESELECT
+    SublineSelect = ScintillaConstants.SC_MARGINOPTION_SUBLINESELECT,
 }

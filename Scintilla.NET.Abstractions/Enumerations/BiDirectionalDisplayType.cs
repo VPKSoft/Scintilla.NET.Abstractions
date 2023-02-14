@@ -18,5 +18,5 @@ public enum BiDirectionalDisplayType
     /// <summary>
     /// The bi-directional display type is right-to-left.
     /// </summary>
-    RightToLeft = ScintillaConstants.SC_BIDIRECTIONAL_R2L
+    RightToLeft = ScintillaConstants.SC_BIDIRECTIONAL_R2L,
 }

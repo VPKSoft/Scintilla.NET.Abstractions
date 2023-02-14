@@ -1,7 +1,7 @@
 namespace ScintillaNet.Abstractions.Enumerations;
 
 /// <summary>
-/// The layer on which a <see cref="Scintilla"/> control will draw elements like for example the text selection.
+/// The layer on which a Scintilla control will draw elements like for example the text selection.
 /// </summary>
 public enum Layer
 {
@@ -19,5 +19,5 @@ public enum Layer
 	/// <summary>
 	/// Draw the selection background translucently over the text.
 	/// </summary>
-	OverText = ScintillaConstants.SC_LAYER_OVER_TEXT
+	OverText = ScintillaConstants.SC_LAYER_OVER_TEXT,
 }

@@ -18,5 +18,5 @@ public enum Order
     /// <summary>
     /// User-defined order.
     /// </summary>
-    Custom = ScintillaConstants.SC_ORDER_CUSTOM
+    Custom = ScintillaConstants.SC_ORDER_CUSTOM,
 }

@@ -13,5 +13,5 @@ public enum TabDrawMode
     /// <summary>
     /// A horizontal line stretching until the tabstop.
     /// </summary>
-    Strikeout = ScintillaConstants.SCTD_STRIKEOUT
+    Strikeout = ScintillaConstants.SCTD_STRIKEOUT,
 }

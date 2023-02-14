@@ -23,5 +23,5 @@ public enum StyleCase
     /// <summary>
     /// Display the text in camel case.
     /// </summary>
-    Camel = ScintillaConstants.SC_CASE_CAMEL
+    Camel = ScintillaConstants.SC_CASE_CAMEL,
 }

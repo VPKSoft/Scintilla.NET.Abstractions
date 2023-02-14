@@ -18,6 +18,6 @@
         /// <summary>
         /// The caret is drawn as a block.
         /// </summary>
-        Block = ScintillaConstants.CARETSTYLE_BLOCK
+        Block = ScintillaConstants.CARETSTYLE_BLOCK,
     }
 
