@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>netstandard2.1</TargetFrameworks>
+	<Copyright>Copyright (c) VPKSoft 2023.</Copyright>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<Description>General classes, enumerations and interfaces for the ScintillaNet package.</Description>
+    <DocumentationFile>bin\$(Configuration)\Scintilla.NET.Abstractions.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+	<LangVersion>10</LangVersion>
+	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+	
+  <PropertyGroup>
+	<DefineConstants>SCINTILLA5</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+	<PackageId>Scintilla.NET.Abstractions</PackageId>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageProjectUrl>https://github.com/VPKSoft/Scintilla.NET.Abstractions</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/VPKSoft/Scintilla.NET</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<PackageTags>ScintillaNET Scintilla Editor</PackageTags>
+	<PackageReleaseNotes>See: https://github.com/VPKSoft/Scintilla.NET.Abstractions</PackageReleaseNotes>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<AssemblyName>Scintilla.NET.Abstractions</AssemblyName>
+	<RootNamespace>ScintillaNet.Abstractions</RootNamespace>
+	<Authors>Jacob Slusser, VPKSoft, cyber960</Authors>
+	<PackageIcon>vpksoft_logo.png</PackageIcon>
+	<Title>Scintilla.NET.Abstractions</Title>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\vpksoft_logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
