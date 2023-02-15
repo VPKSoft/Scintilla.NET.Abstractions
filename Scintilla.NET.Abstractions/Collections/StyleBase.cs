@@ -1,6 +1,7 @@
 using System.Text;
 using ScintillaNet.Abstractions.Enumerations;
 using ScintillaNet.Abstractions.Interfaces.Collections;
+using static ScintillaNet.Abstractions.ScintillaConstants;
 
 namespace ScintillaNet.Abstractions.Collections;
 
@@ -53,11 +54,11 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <remarks>Setting this property affects the <see cref="Weight" /> property.</remarks>
     public virtual bool Bold
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETBOLD, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETBOLD, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
         set
         {
             var bold = value ? new IntPtr(1) : IntPtr.Zero;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETBOLD, new IntPtr(Index), bold);
+            ScintillaApi.DirectMessage(SCI_STYLESETBOLD, new IntPtr(Index), bold);
         }
     }
 
@@ -70,14 +71,26 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     {
         get
         {
-            var @case = ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETCASE, new IntPtr(Index), IntPtr.Zero).ToInt32();
+            var @case = ScintillaApi.DirectMessage(SCI_STYLEGETCASE, new IntPtr(Index), IntPtr.Zero).ToInt32();
             return (StyleCase)@case;
         }
         set
         {
             // Just an excuse to use @... syntax
             var @case = (int)value;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETCASE, new IntPtr(Index), new IntPtr(@case));
+            ScintillaApi.DirectMessage(SCI_STYLESETCASE, new IntPtr(Index), new IntPtr(@case));
+        }
+    }
+
+    /// <inheritdoc />
+    public bool Changeable
+    {
+        get =>  ScintillaApi.DirectMessage(SCI_STYLEGETCHANGEABLE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+
+        set
+        {
+            var changeable = (value ? new IntPtr(1) : IntPtr.Zero);
+            ScintillaApi.DirectMessage(SCI_STYLESETCHANGEABLE, new IntPtr(Index), changeable);
         }
     }
 
@@ -88,11 +101,11 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <returns>true to fill the line; otherwise, false. The default is false.</returns>
     public virtual bool FillLine
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETEOLFILLED, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETEOLFILLED, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
         set
         {
             var fillLine = value ? new IntPtr(1) : IntPtr.Zero;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETEOLFILLED, new IntPtr(Index), fillLine);
+            ScintillaApi.DirectMessage(SCI_STYLESETEOLFILLED, new IntPtr(Index), fillLine);
         }
     }
 
@@ -105,13 +118,13 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     {
         get
         {
-            var length = ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETFONT, new IntPtr(Index), IntPtr.Zero).ToInt32();
+            var length = ScintillaApi.DirectMessage(SCI_STYLEGETFONT, new IntPtr(Index), IntPtr.Zero).ToInt32();
             var font = new byte[length];
             unsafe
             {
                 fixed (byte* bp = font)
                 {
-                    ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETFONT, new IntPtr(Index), new IntPtr(bp));
+                    ScintillaApi.DirectMessage(SCI_STYLEGETFONT, new IntPtr(Index), new IntPtr(bp));
                 }
             }
 
@@ -131,7 +144,7 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
             {
                 fixed (byte* bp = font)
                 {
-                    ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETFONT, new IntPtr(Index), new IntPtr(bp));
+                    ScintillaApi.DirectMessage(SCI_STYLESETFONT, new IntPtr(Index), new IntPtr(bp));
                 }
             }
         }
@@ -150,11 +163,11 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <returns>true to use hyperlink behavior; otherwise, false. The default is false.</returns>
     public virtual bool Hotspot
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETHOTSPOT, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETHOTSPOT, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
         set
         {
             var hotspot = value ? new IntPtr(1) : IntPtr.Zero;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETHOTSPOT, new IntPtr(Index), hotspot);
+            ScintillaApi.DirectMessage(SCI_STYLESETHOTSPOT, new IntPtr(Index), hotspot);
         }
     }
 
@@ -170,11 +183,11 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <returns>true if italic; otherwise, false. The default is false.</returns>
     public virtual bool Italic
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETITALIC, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETITALIC, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
         set
         {
             var italic = value ? new IntPtr(1) : IntPtr.Zero;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETITALIC, new IntPtr(Index), italic);
+            ScintillaApi.DirectMessage(SCI_STYLESETITALIC, new IntPtr(Index), italic);
         }
     }
 
@@ -184,8 +197,8 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <returns>The size of the style font as a whole number of points. The default is 8.</returns>
     public virtual int Size
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETSIZE, new IntPtr(Index), IntPtr.Zero).ToInt32();
-        set => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETSIZE, new IntPtr(Index), new IntPtr(value));
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETSIZE, new IntPtr(Index), IntPtr.Zero).ToInt32();
+        set => ScintillaApi.DirectMessage(SCI_STYLESETSIZE, new IntPtr(Index), new IntPtr(value));
     }
 
     /// <summary>
@@ -196,13 +209,13 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     {
         get
         {
-            var fraction = ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETSIZEFRACTIONAL, new IntPtr(Index), IntPtr.Zero).ToInt32();
-            return (float)fraction / ScintillaConstants.SC_FONT_SIZE_MULTIPLIER;
+            var fraction = ScintillaApi.DirectMessage(SCI_STYLEGETSIZEFRACTIONAL, new IntPtr(Index), IntPtr.Zero).ToInt32();
+            return (float)fraction / SC_FONT_SIZE_MULTIPLIER;
         }
         set
         {
-            var fraction = (int)(value * ScintillaConstants.SC_FONT_SIZE_MULTIPLIER);
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETSIZEFRACTIONAL, new IntPtr(Index), new IntPtr(fraction));
+            var fraction = (int)(value * SC_FONT_SIZE_MULTIPLIER);
+            ScintillaApi.DirectMessage(SCI_STYLESETSIZEFRACTIONAL, new IntPtr(Index), new IntPtr(fraction));
         }
     }
 
@@ -212,11 +225,11 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <returns>true if underlined; otherwise, false. The default is false.</returns>
     public virtual bool Underline
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETUNDERLINE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETUNDERLINE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
         set
         {
             var underline = value ? new IntPtr(1) : IntPtr.Zero;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETUNDERLINE, new IntPtr(Index), underline);
+            ScintillaApi.DirectMessage(SCI_STYLESETUNDERLINE, new IntPtr(Index), underline);
         }
     }
 
@@ -226,11 +239,11 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <returns>true to display the style text; otherwise, false. The default is true.</returns>
     public virtual bool Visible
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETVISIBLE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETVISIBLE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
         set
         {
             var visible = value ? new IntPtr(1) : IntPtr.Zero;
-            ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETVISIBLE, new IntPtr(Index), visible);
+            ScintillaApi.DirectMessage(SCI_STYLESETVISIBLE, new IntPtr(Index), visible);
         }
     }
 
@@ -241,8 +254,8 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <remarks>Setting this property affects the <see cref="Bold" /> property.</remarks>
     public virtual int Weight
     {
-        get => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLEGETWEIGHT, new IntPtr(Index), IntPtr.Zero).ToInt32();
-        set => ScintillaApi.DirectMessage(ScintillaConstants.SCI_STYLESETWEIGHT, new IntPtr(Index), new IntPtr(value));
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETWEIGHT, new IntPtr(Index), IntPtr.Zero).ToInt32();
+        set => ScintillaApi.DirectMessage(SCI_STYLESETWEIGHT, new IntPtr(Index), new IntPtr(value));
     }
 
     #endregion Properties
@@ -256,7 +269,7 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <param name="index">The index of this style within the <see cref="StyleCollectionBase{TStyle,TColor}" /> that created it.</param>
     public StyleBase(IScintillaApi scintilla, int index)
     {
-        this.ScintillaApi = scintilla;
+        ScintillaApi = scintilla;
         Index = index;
     }
 

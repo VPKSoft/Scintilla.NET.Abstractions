@@ -420,8 +420,7 @@ public interface IScintillaMethods
     /// </summary>
     /// <param name="position">The zero-based document position to get the column for.</param>
     /// <returns>The number of columns from the start of the line to the specified document <paramref name="position" />.</returns>
-    int GetColumn(int position)
-;
+    int GetColumn(int position);
 
     /// <summary>
     /// Returns the last document position likely to be styled correctly.
@@ -786,6 +785,20 @@ public interface IScintillaMethods
     /// <param name="pos">The zero-based document position to place the caret at.</param>
     /// <remarks>The caret is not scrolled into view.</remarks>
     void SetEmptySelection(int pos);
+
+    /// <summary>
+    /// Sets the X caret policy.
+    /// </summary>
+    /// <param name="caretPolicy">a combination of <see cref="CaretPolicy"/> values.</param>
+    /// <param name="caretSlop">the caretSlop value</param>
+    void SetXCaretPolicy(CaretPolicy caretPolicy, int caretSlop);
+
+    /// <summary>
+    /// Sets the Y caret policy.
+    /// </summary>
+    /// <param name="caretPolicy">a combination of <see cref="CaretPolicy"/> values.</param>
+    /// <param name="caretSlop">the caretSlop value</param>
+    void SetYCaretPolicy(CaretPolicy caretPolicy, int caretSlop);
 
     /// <summary>
     /// Sets additional options for displaying folds.

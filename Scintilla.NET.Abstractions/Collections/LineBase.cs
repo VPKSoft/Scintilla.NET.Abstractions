@@ -569,6 +569,7 @@ public abstract class LineBase : IScintillaLine
     public virtual int Indentation
     {
         get => ScintillaApi.DirectMessage(SCI_GETLINEINDENTATION, new IntPtr(Index)).ToInt32();
+
         set => ScintillaApi.DirectMessage(SCI_SETLINEINDENTATION, new IntPtr(Index), new IntPtr(value));
     }
 

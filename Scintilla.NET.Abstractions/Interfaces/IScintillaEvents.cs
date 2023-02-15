@@ -102,11 +102,12 @@ public interface IScintillaEvents
 /// <typeparam name="TStyleNeededEventArgs">The type of the t style needed event arguments.</typeparam>
 /// <typeparam name="TUpdateUiEventArgs">The type of the t update UI event arguments.</typeparam>
 /// <typeparam name="TScNotificationEventArgs">The type of the TSC notification event arguments.</typeparam>
+/// <typeparam name="TAutoCSelectionChangeEventArgs">The type of the auto selection changed event arguments.</typeparam>
 public interface IScintillaEvents<TKeys,
     TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs,
     TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs,
     TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs,
-    TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs> where TKeys : Enum
+    TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs, TAutoCSelectionChangeEventArgs> where TKeys : Enum
     where TAutoCSelectionEventArgs : IAutoCSelectionEventArgs
     where TBeforeModificationEventArgs: IBeforeModificationEventArgs
     where TModificationEventArgs: IModificationEventArgs
@@ -124,6 +125,7 @@ public interface IScintillaEvents<TKeys,
     where TStyleNeededEventArgs: IStyleNeededEventArgs
     where TUpdateUiEventArgs: IUpdateUIEventArgs
     where TScNotificationEventArgs: ISCNotificationEventArgs
+    where TAutoCSelectionChangeEventArgs: IAutoCSelectionChangeEventArgs
 {
     /// <summary>
     /// Occurs after auto-completed text is inserted.
@@ -257,4 +259,9 @@ public interface IScintillaEvents<TKeys,
     /// selection, and/or scroll positions.
     /// </summary>
     event EventHandler<TUpdateUiEventArgs> UpdateUi;
+
+    /// <summary>
+    /// Occurs when a user has highlighted an item in an auto-completion list.
+    /// </summary>
+    event EventHandler<TAutoCSelectionChangeEventArgs> AutoCSelectionChange;
 }

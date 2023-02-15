@@ -769,6 +769,12 @@ public interface IScintillaProperties
     int VisibleLineCount { get; }
 
     /// <summary>
+    /// Gets or sets the characters considered 'whitespace' characters when using any word-based logic.
+    /// </summary>
+    /// <returns>A string of whitespace characters.</returns>
+    string WhitespaceChars { get; set; }
+
+    /// <summary>
     /// Gets or sets the size of the dots used to mark whitespace.
     /// </summary>
     /// <returns>The size of the dots used to mark whitespace. The default is 1.</returns>

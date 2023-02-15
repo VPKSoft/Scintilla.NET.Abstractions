@@ -82,6 +82,12 @@ public class ScintillaConstants
     public const int SCI_CSHIFT = SCI_CTRL | SCI_SHIFT;
     public const int SCI_ASHIFT = SCI_ALT | SCI_SHIFT;
 
+    // Caret policy flags
+    public const int CARET_SLOP = 0x01;
+    public const int CARET_STRICT = 0x04;
+    public const int CARET_JUMPS = 0x10;
+    public const int CARET_EVEN = 0x08;
+
     // Caret styles
     public const int CARETSTYLE_INVISIBLE = 0;
     public const int CARETSTYLE_LINE = 1;
@@ -1078,6 +1084,7 @@ public class ScintillaConstants
     public const int SCN_FOCUSOUT = 2029;
     public const int SCN_AUTOCCOMPLETED = 2030;
     public const int SCN_MARGINRIGHTCLICK = 2031;
+    public const int SCN_AUTOCSELECTIONCHANGE = 2032;
 
     // Popup
     public const int SC_POPUP_NEVER = 0;

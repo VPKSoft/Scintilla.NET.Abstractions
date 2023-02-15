@@ -1,4 +1,5 @@
 using ScintillaNet.Abstractions.Enumerations;
+using ScintillaNet.Abstractions.Interfaces.Methods;
 
 namespace ScintillaNet.Abstractions.Interfaces.Collections;
 
@@ -42,6 +43,15 @@ public interface IScintillaStyle<TColor>
     /// <returns>One of the <see cref="StyleCase" /> enum values. The default is <see cref="StyleCase.Mixed" />.</returns>
     /// <remarks>This does not affect how text is stored, only displayed.</remarks>
     StyleCase Case { get; set; }
+
+    /// <summary>
+    /// This is an experimental and incompletely implemented style attribute. The default setting is changeable set true
+    /// but when set false it makes text read-only. The user can not move the caret within not-changeable text and
+    /// not-changeable text may not be deleted by the user. The application may delete not-changeable text by calling
+    /// <see cref="IScintillaMethods.DeleteRange(int, int)"/>.
+    /// </summary>
+    /// <returns>false to make the text read-only, true otherwise. The default is true.</returns>
+    bool Changeable { get; set; }
 
     /// <summary>
     /// Gets or sets whether the remainder of the line is filled with the <see cref="BackColor" />

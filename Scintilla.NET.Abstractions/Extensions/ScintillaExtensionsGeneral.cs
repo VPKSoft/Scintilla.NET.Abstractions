@@ -1603,9 +1603,16 @@ public static class ScintillaExtensionsGeneral
         text ??= string.Empty;
 
         var bytes = HelpersGeneral.GetBytes(text, scintilla.Encoding, false);
+        // Scintilla asserts that lParam is not null, so make sure it isn't
+        var length = bytes.Length;
+        if (length == 0)
+        {
+            bytes = new byte[] { 0, };
+        }
+
         fixed (byte* bp = bytes)
         {
-            scintilla.DirectMessage(SCI_REPLACETARGET, new IntPtr(bytes.Length), new IntPtr(bp));
+            scintilla.DirectMessage(SCI_REPLACETARGET, new IntPtr(length), new IntPtr(bp));
         }
 
         return text.Length;
@@ -1628,9 +1635,16 @@ public static class ScintillaExtensionsGeneral
     public static unsafe int ReplaceTargetReExtension(this IScintillaApi scintilla, string? text, int targetStart, int targetEnd)
     {
         var bytes = HelpersGeneral.GetBytes(text ?? string.Empty, scintilla.Encoding, false);
+        // Scintilla asserts that lParam is not null, so make sure it isn't
+        var length = bytes.Length;
+        if (length == 0)
+        {
+            bytes = new byte[] { 0, };
+        }
+
         fixed (byte* bp = bytes)
         {
-            scintilla.DirectMessage(SCI_REPLACETARGETRE, new IntPtr(bytes.Length), new IntPtr(bp));
+            scintilla.DirectMessage(SCI_REPLACETARGETRE, new IntPtr(length), new IntPtr(bp));
         }
 
         return Math.Abs(targetEnd - targetStart);
@@ -1697,9 +1711,17 @@ public static class ScintillaExtensionsGeneral
     {
         int bytePos;
         var bytes = HelpersGeneral.GetBytes(text ?? string.Empty, scintilla.Encoding, zeroTerminated: false);
+
+        // Scintilla asserts that lParam is not null, so make sure it isn't
+        var length = bytes.Length;
+        if (length == 0)
+        {
+            bytes = new byte[] { 0, };
+        }
+
         fixed (byte* bp = bytes)
         {
-            bytePos = scintilla.DirectMessage(SCI_SEARCHINTARGET, new IntPtr(bytes.Length), new IntPtr(bp)).ToInt32();
+            bytePos = scintilla.DirectMessage(SCI_SEARCHINTARGET, new IntPtr(length), new IntPtr(bp)).ToInt32();
         }
 
         return bytePos == -1 ? bytePos : lines.ByteToCharPosition(bytePos);
@@ -2087,6 +2109,28 @@ public static class ScintillaExtensionsGeneral
         var useWhitespaceForeColor = use ? new IntPtr(1) : IntPtr.Zero;
 
         scintilla.DirectMessage(SCI_SETWHITESPACEFORE, useWhitespaceForeColor, new IntPtr(intColor));
+    }
+
+    /// <summary>
+    /// Sets the X caret policy.
+    /// </summary>
+    /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
+    /// <param name="caretPolicy">a combination of <see cref="CaretPolicy"/> values.</param>
+    /// <param name="caretSlop">the caretSlop value</param>
+    public static void SetXCaretPolicyExtension(this IScintillaApi scintilla, CaretPolicy caretPolicy, int caretSlop)
+    {
+        scintilla.DirectMessage(SCI_SETXCARETPOLICY, new IntPtr((int)caretPolicy), new IntPtr(caretSlop));
+    }
+
+    /// <summary>
+    /// Sets the Y caret policy.
+    /// </summary>
+    /// <param name="scintilla">A reference to the control implementing the <see cref="IScintillaApi"/>.</param>
+    /// <param name="caretPolicy">a combination of <see cref="CaretPolicy"/> values.</param>
+    /// <param name="caretSlop">the caretSlop value</param>
+    public static void SetYCaretPolicyExtension(this IScintillaApi scintilla, CaretPolicy caretPolicy, int caretSlop)
+    {
+        scintilla.DirectMessage(SCI_SETYCARETPOLICY, new IntPtr((int)caretPolicy), new IntPtr(caretSlop));
     }
 
     /// <summary>

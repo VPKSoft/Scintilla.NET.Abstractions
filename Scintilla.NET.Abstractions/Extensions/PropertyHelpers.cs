@@ -915,6 +915,43 @@ public static class PropertyHelpers
         scintilla.DirectMessage(SCI_SETENDATLASTLINE, endAtLastLine);
     }
 
+    /// <summary>
+    /// Gets the characters considered 'whitespace' characters when using any word-based logic.
+    /// </summary>
+    /// <param name="scintilla">The Scintilla instance.</param>
+    /// <returns>A string of whitespace characters.</returns>
+    public static unsafe string WhitespaceCharsSet(this IScintillaApi scintilla)
+    {
+        var length = scintilla.DirectMessage(SCI_GETWHITESPACECHARS, IntPtr.Zero, IntPtr.Zero).ToInt32();
+        var bytes = new byte[length + 1];
+        fixed (byte* bp = bytes)
+        {
+            scintilla.DirectMessage(SCI_GETWHITESPACECHARS, IntPtr.Zero, new IntPtr(bp));
+            return HelpersGeneral.GetString(new IntPtr(bp), length, Encoding.ASCII);
+        }
+    }
+
+    /// <summary>
+    /// Sets the characters considered 'whitespace' characters when using any word-based logic.
+    /// </summary>
+    /// <param name="scintilla">The Scintilla instance.</param>
+    /// <param name="value">The property value.</param>
+    public static unsafe void WhitespaceCharsSet(this IScintillaApi scintilla, string? value)
+    {
+        if (value == null)
+        {
+            scintilla.DirectMessage(SCI_SETWHITESPACECHARS, IntPtr.Zero, IntPtr.Zero);
+            return;
+        }
+
+        // Scintilla stores each of the characters specified in a char array which it then
+        // uses as a lookup for word matching logic. Thus, any multibyte chars wouldn't work.
+        var bytes = HelpersGeneral.GetBytes(value, Encoding.ASCII, zeroTerminated: true);
+        fixed (byte* bp = bytes)
+        {
+            scintilla.DirectMessage(SCI_SETWHITESPACECHARS, IntPtr.Zero, new IntPtr(bp));
+        }
+    }
 
     /// <summary>
     /// A get method for the <see cref="IScintillaProperties.EolMode"/> property.
