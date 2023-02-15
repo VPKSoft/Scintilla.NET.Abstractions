@@ -920,7 +920,7 @@ public static class PropertyHelpers
     /// </summary>
     /// <param name="scintilla">The Scintilla instance.</param>
     /// <returns>A string of whitespace characters.</returns>
-    public static unsafe string WhitespaceCharsSet(this IScintillaApi scintilla)
+    public static unsafe string WhitespaceCharsGet(this IScintillaApi scintilla)
     {
         var length = scintilla.DirectMessage(SCI_GETWHITESPACECHARS, IntPtr.Zero, IntPtr.Zero).ToInt32();
         var bytes = new byte[length + 1];
