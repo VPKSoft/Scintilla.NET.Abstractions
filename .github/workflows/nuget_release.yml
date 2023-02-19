@@ -4,17 +4,12 @@ on:
   create:
     tags:
     - 'v*'
-    
-jobs:
+  workflow_dispatch:
 
+jobs:
   build:
     environment: NuGet
-    strategy:
-      matrix:
-        configuration: [Release]
-
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: ubuntu-latest
 
     env:
       Solution_Name: Scintilla.NET.Abstractions.sln
@@ -27,57 +22,29 @@ jobs:
       NUGETCONFIG: ${{ secrets.NUGETCONFIG }}
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
-    # Install the .NET 6 workload
-    - name: Install .NET
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
-
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
-
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
-
-    # Create the app package by building and packaging the Windows Application Packaging project
-    - name: Create the app NuGet package
-      run: msbuild $env:App_Project_Path /p:Configuration=$env:Configuration
-
+    - name: Restore dependencies
+      run: dotnet restore $Solution_Name
+    - name: Build GTK
+      run: dotnet build --no-restore --configuration Release $Solution_Name
+    - name: Build Linux Shared
+      run: dotnet build --no-restore --configuration Release $App_Project_Path
     - name: Decode nuget.config
       if: ${{ github.event_name != 'pull_request' }}
       run: |
-        $nuget_config_bytes = [System.Convert]::FromBase64String("$env:NUGETCONFIG")
-        $currentDirectory = Get-Location
-        $nugetConfigFile = Join-Path -Path $currentDirectory -ChildPath "nuget.config"
-        [IO.File]::WriteAllBytes("$nugetConfigFile", $nuget_config_bytes)
-
+        currentDirectory=`pwd`
+        nuget_config_bytes=`echo $NUGETCONFIG | base64 --decode`
+        nugetConfigFile="$currentDirectory/nuget.config"
+        echo "$nuget_config_bytes" > $nugetConfigFile
     - name: NuGet push
       if: ${{ github.event_name != 'pull_request' }}
       run: |
-        $currentDirectory = Get-Location
-        $files = Get-ChildItem $currentDirectory -r -Filter *Scintilla.NET*.nupkg # use the mask to discard possible third party packages..
+        find . -name '**Scintilla.NET*.nupkg' | while read line; do
+          nuget push $line $NUGET_APIKEY -Source $NUGETAPI -SkipDuplicate
+          nuget push $line $GH_PACKAGES_APIKEY -Source $PACKAGESAPI -SkipDuplicate
+        done
 
-        Write-Output $files.Count
-
-        for ($i = 0; $i -lt $files.Count; $i++) 
-        { 
-            $file = $files[$i].FullName
-            
-            $arguments = @("push", $file, "$env:NUGET_APIKEY", "-Source", "$env:NUGETAPI", "-SkipDuplicate")
-            
-            # sign the NuGet packages.
-            Write-Output (-join("Pushing NuGet:", $file, " ..."))
-            nuget.exe $arguments
-            
-            $arguments = @("push", $file, "$env:GH_PACKAGES_APIKEY", "-Source", "$env:PACKAGESAPI", "-SkipDuplicate")
-            nuget.exe $arguments
-        }
