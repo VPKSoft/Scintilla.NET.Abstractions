@@ -29,9 +29,9 @@ jobs:
         dotnet-version: 7.0.x
     - name: Restore dependencies
       run: dotnet restore $Solution_Name
-    - name: Build GTK
+    - name: Restore Abstractions / .NET Standard 2.1
       run: dotnet build --no-restore --configuration Release $Solution_Name
-    - name: Build Linux Shared
+    - name: Build Abstractions / .NET Standard 2.1
       run: dotnet build --no-restore --configuration Release $App_Project_Path
     - name: Decode nuget.config
       if: ${{ github.event_name != 'pull_request' }}
