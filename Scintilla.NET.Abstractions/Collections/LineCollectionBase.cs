@@ -452,7 +452,7 @@ public abstract class LineCollectionBase<TLine> : IScintillaLineCollection<TLine
     /// <param name="scintilla">The Scintilla control that created this collection.</param>
     public LineCollectionBase(IScintillaApi scintilla)
     {
-        this.ScintillaApi = scintilla;
+        ScintillaApi = scintilla;
 
         PerLineData = new GapBuffer<PerLine>
         {

@@ -123,7 +123,7 @@ public abstract class MarginBase<TColor> : IScintillaMargin<TColor>
     /// <param name="index">The index of this margin within the <see cref="IScintillaMarginCollection{TMargin,TColor}" /> that created it.</param>
     protected MarginBase(IScintillaApi scintilla, int index)
     {
-        this.ScintillaApi = scintilla;
+        ScintillaApi = scintilla;
         Index = index;
     }
 

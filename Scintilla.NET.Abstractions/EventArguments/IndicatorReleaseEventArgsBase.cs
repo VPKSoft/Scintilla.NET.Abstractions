@@ -7,8 +7,10 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class IndicatorReleaseEventArgsBase : ScintillaEventArgs, IIndicatorReleaseEventArgs
 {
-    private readonly int bytePosition;
     private int? position;
+
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the zero-based document position of the text clicked.
@@ -18,7 +20,7 @@ public abstract class IndicatorReleaseEventArgsBase : ScintillaEventArgs, IIndic
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -39,7 +41,7 @@ public abstract class IndicatorReleaseEventArgsBase : ScintillaEventArgs, IIndic
         int bytePosition) : base(scintilla)
 
     {
-        this.bytePosition = bytePosition;
+        this.BytePosition = bytePosition;
         LineCollectionGeneral = lineCollectionGeneral;
     }
 }

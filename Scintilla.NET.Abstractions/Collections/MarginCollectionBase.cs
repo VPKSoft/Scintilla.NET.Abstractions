@@ -116,6 +116,6 @@ public abstract class MarginCollectionBase<TMargin, TColor> :
     /// <param name="scintilla">The Scintilla control that created this collection.</param>
     protected MarginCollectionBase(IScintillaApi scintilla)
     {
-        this.ScintillaApi = scintilla;
+        ScintillaApi = scintilla;
     }
 }

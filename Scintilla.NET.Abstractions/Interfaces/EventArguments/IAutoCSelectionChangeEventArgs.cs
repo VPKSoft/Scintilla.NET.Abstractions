@@ -24,12 +24,14 @@ SOFTWARE.
 */
 #endregion
 
+using ScintillaNet.Abstractions.Interfaces.EventArguments.Base;
+
 namespace ScintillaNet.Abstractions.Interfaces.EventArguments;
 
 /// <summary>
 /// Provides data for the Scintilla.AutoCSelectionChange event.
 /// </summary>
-public interface IAutoCSelectionChangeEventArgs
+public interface IAutoCSelectionChangeEventArgs : IBytePosition
 {
     /// <summary>
     /// Gets the list type of the user list or 0 for an auto-completion.

@@ -5,13 +5,16 @@ using ScintillaNet.Abstractions.Interfaces.EventArguments;
 namespace ScintillaNet.Abstractions.EventArguments;
 
 /// <summary>
-/// Provides data for the <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs}.DoubleClick" /> event.
+/// Provides data for the <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs,TAutoCSelectionChangeEventArgs}.DoubleClick" /> event.
 /// </summary>
 public abstract class DoubleClickEventArgsBase<TKeys> : ScintillaEventArgs, IDoubleClickEventArgs
     where TKeys: Enum
 {
-    private readonly int bytePosition;
     private int? position;
+
+
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the line double clicked.
@@ -39,7 +42,7 @@ public abstract class DoubleClickEventArgsBase<TKeys> : ScintillaEventArgs, IDou
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -60,7 +63,7 @@ public abstract class DoubleClickEventArgsBase<TKeys> : ScintillaEventArgs, IDou
         int bytePosition, 
         int line) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         Modifiers = modifiers;
         Line = line;
         LineCollectionGeneral = lineCollectionGeneral;

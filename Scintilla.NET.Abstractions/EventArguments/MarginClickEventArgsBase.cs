@@ -5,13 +5,15 @@ using ScintillaNet.Abstractions.Interfaces.EventArguments;
 namespace ScintillaNet.Abstractions.EventArguments;
 
 /// <summary>
-/// Provides data for the <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs}.MarginClick" /> event.
+/// Provides data for the <see cref="IScintillaEvents{TKeys,TAutoCSelectionEventArgs,TBeforeModificationEventArgs,TModificationEventArgs,TChangeAnnotationEventArgs,TCharAddedEventArgs,TDoubleClickEventArgs,TDwellEventArgs,TCallTipClickEventArgs,THotspotClickEventArgs,TIndicatorClickEventArgs,TIndicatorReleaseEventArgs,TInsertCheckEventArgs,TMarginClickEventArgs,TNeedShownEventArgs,TStyleNeededEventArgs,TUpdateUiEventArgs,TScNotificationEventArgs,TAutoCSelectionChangeEventArgs}.MarginClick" /> event.
 /// </summary>
 public abstract class MarginClickEventArgsBase<TKeys> : ScintillaEventArgs, IMarginClickEventArgs<TKeys>
     where TKeys: Enum
 {
-    private readonly int bytePosition;
     private int? position;
+    
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the margin clicked.
@@ -33,7 +35,7 @@ public abstract class MarginClickEventArgsBase<TKeys> : ScintillaEventArgs, IMar
     {
         get
         {
-            position ??=LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??=LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -56,7 +58,7 @@ public abstract class MarginClickEventArgsBase<TKeys> : ScintillaEventArgs, IMar
         TKeys modifiers, int bytePosition,
         int margin) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         Modifiers = modifiers;
         Margin = margin;
         LineCollectionGeneral = lineCollectionGeneral;

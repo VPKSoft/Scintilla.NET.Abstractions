@@ -24,17 +24,16 @@ SOFTWARE.
 */
 #endregion
 
-using ScintillaNet.Abstractions.Enumerations;
+namespace ScintillaNet.Abstractions.Interfaces.EventArguments.Base;
 
-namespace ScintillaNet.Abstractions.Interfaces.EventArguments;
 /// <summary>
-/// Provides data for the <see cref="IScintillaEvents{TKeys, TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs,TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs,TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs,TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs, TAutoCSelectionChangeEventArgs}.CallTipClick" /> events.
+/// An interface for event arguments with byte position.
 /// </summary>
-
-public interface ICallTipClickEventArgs
+public interface IBytePosition
 {
     /// <summary>
-    /// Gets the type of the call tip click.
+    /// Gets or sets zero-based byte position within the document.
     /// </summary>
-    CallTipClickType CallTipClickType { get; }
+    /// <value>The zero-based byte position.</value>
+    int BytePosition { get; set; }
 }
