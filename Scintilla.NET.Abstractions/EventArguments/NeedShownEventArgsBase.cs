@@ -9,10 +9,12 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class NeedShownEventArgsBase : ScintillaEventArgs, INeedShownEventArgs 
 {
-    private readonly int bytePosition;
     private readonly int byteLength;
     private int? position;
     private int? length;
+
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <inheritdoc />
     public IScintillaLineCollectionGeneral LineCollectionGeneral { get; }
@@ -27,7 +29,7 @@ public abstract class NeedShownEventArgsBase : ScintillaEventArgs, INeedShownEve
         {
             if (length == null)
             {
-                var endBytePosition = bytePosition + byteLength;
+                var endBytePosition = BytePosition + byteLength;
                 var endPosition = LineCollectionGeneral.ByteToCharPosition(endBytePosition);
                 length = endPosition - Position;
             }
@@ -44,7 +46,7 @@ public abstract class NeedShownEventArgsBase : ScintillaEventArgs, INeedShownEve
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -62,7 +64,7 @@ public abstract class NeedShownEventArgsBase : ScintillaEventArgs, INeedShownEve
         int bytePosition, int byteLength) : base(scintilla)
 
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         this.byteLength = byteLength;
         LineCollectionGeneral = lineCollectionGeneral;
     }

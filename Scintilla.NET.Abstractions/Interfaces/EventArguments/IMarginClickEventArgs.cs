@@ -30,12 +30,13 @@ using ScintillaNet.Abstractions.Interfaces.EventArguments.Base;
 namespace ScintillaNet.Abstractions.Interfaces.EventArguments;
 
 /// <summary>
-/// Provides data for the <see cref="IScintillaEvents{TKeys, TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs,TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs,TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs,TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs}.MarginClick" /> events.
+/// Provides data for the <see cref="IScintillaEvents{TKeys, TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs,TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs,TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs,TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs, TAutoCSelectionChangeEventArgs}.MarginClick" /> events.
 /// </summary>
 public interface IMarginClickEventArgs<out TKeys>
     : IScintillaEventArgs,
         IModifierKeys<TKeys>,
-        IPosition
+        IPosition,
+        IBytePosition
     where TKeys: Enum
 {
     /// <summary>

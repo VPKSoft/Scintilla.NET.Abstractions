@@ -9,7 +9,6 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class DwellEventArgsBase : ScintillaEventArgs, IDwellEventArgs
 {
-    private readonly int bytePosition;
     private int? position;
 
     /// <summary>
@@ -20,11 +19,14 @@ public abstract class DwellEventArgsBase : ScintillaEventArgs, IDwellEventArgs
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
     }
+
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the x-coordinate of the mouse pointer.
@@ -55,7 +57,7 @@ public abstract class DwellEventArgsBase : ScintillaEventArgs, IDwellEventArgs
         int bytePosition, int x,
         int y) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         X = x;
         Y = y;
         LineCollectionGeneral = lineCollectionGeneral;

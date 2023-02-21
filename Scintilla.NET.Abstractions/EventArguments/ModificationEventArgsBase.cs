@@ -11,7 +11,8 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class ModificationEventArgsBase : ScintillaEventArgs, IModificationEventArgs
 {
-    private readonly int bytePosition;
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets or sets the cached position.
@@ -33,7 +34,7 @@ public abstract class ModificationEventArgsBase : ScintillaEventArgs, IModificat
     {
         get
         {
-            CachedPosition ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            CachedPosition ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)CachedPosition;
         }
@@ -43,7 +44,7 @@ public abstract class ModificationEventArgsBase : ScintillaEventArgs, IModificat
     /// Gets the source of the modification.
     /// </summary>
     /// <returns>One of the <see cref="ModificationSource" /> enum values.</returns>
-    public virtual ModificationSource Source { get; private set; }
+    public virtual ModificationSource Source { get; }
 
     /// <summary>
     /// Gets the text being inserted or deleted.
@@ -69,7 +70,7 @@ public abstract class ModificationEventArgsBase : ScintillaEventArgs, IModificat
                 // SC_MOD_BEFOREDELETE... but we can get it from the document.
                 if (TextPtr == IntPtr.Zero)
                 {
-                    var ptr = ScintillaApi.DirectMessage(SCI_GETRANGEPOINTER, new IntPtr(bytePosition), new IntPtr(ByteLength));
+                    var ptr = ScintillaApi.DirectMessage(SCI_GETRANGEPOINTER, new IntPtr(BytePosition), new IntPtr(ByteLength));
                     CachedText = new string((sbyte*)ptr, 0, ByteLength, ScintillaApi.Encoding);
                 }
                 else
@@ -100,8 +101,8 @@ public abstract class ModificationEventArgsBase : ScintillaEventArgs, IModificat
         ModificationSource source,
         int bytePosition, int byteLength, IntPtr text) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
-        this.ByteLength = byteLength;
+        BytePosition = bytePosition;
+        ByteLength = byteLength;
         TextPtr = text;
         Source = source;
         LineCollectionGeneral = lineCollectionGeneral;

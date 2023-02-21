@@ -10,8 +10,10 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class StyleNeededEventArgsBase : ScintillaEventArgs, IStyleNeededEventArgs
 {
-    private readonly int bytePosition;
     private int? position;
+    
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <inheritdoc />
     public IScintillaLineCollectionGeneral LineCollectionGeneral { get; }
@@ -25,7 +27,7 @@ public abstract class StyleNeededEventArgsBase : ScintillaEventArgs, IStyleNeede
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -42,7 +44,7 @@ public abstract class StyleNeededEventArgsBase : ScintillaEventArgs, IStyleNeede
         IScintillaLineCollectionGeneral lineCollectionGeneral,
         int bytePosition) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         LineCollectionGeneral = lineCollectionGeneral;
     }
 }

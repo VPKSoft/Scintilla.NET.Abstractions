@@ -91,7 +91,7 @@ public abstract class MarkerBase<TImage, TColor> : IScintillaMarker<TImage, TCol
     /// <param name="index">The index of this style within the <see cref="MarkerCollectionBase{TMarker, TImage, TColor}" /> that created it.</param>
     public MarkerBase(IScintillaApi scintilla, int index)
     {
-        this.ScintillaApi = scintilla;
+        ScintillaApi = scintilla;
         Index = index;
     }
 }

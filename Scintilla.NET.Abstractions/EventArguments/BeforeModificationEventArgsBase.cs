@@ -11,7 +11,8 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class BeforeModificationEventArgsBase : ScintillaEventArgs, IBeforeModificationEventArgs
 {
-    private readonly int bytePosition;
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets or sets the cached position.
@@ -39,7 +40,7 @@ public abstract class BeforeModificationEventArgsBase : ScintillaEventArgs, IBef
     {
         get
         {
-            CachedPosition ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            CachedPosition ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)CachedPosition;
         }
@@ -70,7 +71,7 @@ public abstract class BeforeModificationEventArgsBase : ScintillaEventArgs, IBef
                 // SC_MOD_BEFOREDELETE... but we can get it from the document.
                 if (TextPtr == IntPtr.Zero)
                 {
-                    var ptr = ScintillaApi.DirectMessage(SCI_GETRANGEPOINTER, new IntPtr(bytePosition), new IntPtr(ByteLength));
+                    var ptr = ScintillaApi.DirectMessage(SCI_GETRANGEPOINTER, new IntPtr(BytePosition), new IntPtr(ByteLength));
                     CachedText = new string((sbyte*)ptr, 0, ByteLength, ScintillaApi.Encoding);
                 }
                 else
@@ -98,8 +99,8 @@ public abstract class BeforeModificationEventArgsBase : ScintillaEventArgs, IBef
         ModificationSource source,
         int bytePosition, int byteLength, IntPtr text) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
-        this.ByteLength = byteLength;
+        BytePosition = bytePosition;
+        ByteLength = byteLength;
         TextPtr = text;
         LineCollectionGeneral = lineCollectionGeneral;
 

@@ -43,7 +43,7 @@ public class AutoCSelectionChangeEventArgsBase : ScintillaEventArgs, IAutoCSelec
     /// <summary>
     /// Gets the zero-based byte position within the document where the list was displayed.
     /// </summary>
-    public int BytePosition { get; }
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the line collection general members.

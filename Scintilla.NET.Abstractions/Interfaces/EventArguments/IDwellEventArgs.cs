@@ -30,9 +30,9 @@ using ScintillaNet.Abstractions.Interfaces.EventArguments.Base;
 namespace ScintillaNet.Abstractions.Interfaces.EventArguments;
 
 /// <summary>
-/// Provides data for the <see cref="IScintillaEvents{TKeys, TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs,TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs,TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs,TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs}.DwellEnd" /> events.
+/// Provides data for the <see cref="IScintillaEvents{TKeys, TAutoCSelectionEventArgs, TBeforeModificationEventArgs, TModificationEventArgs, TChangeAnnotationEventArgs, TCharAddedEventArgs,TDoubleClickEventArgs, TDwellEventArgs, TCallTipClickEventArgs, THotspotClickEventArgs, TIndicatorClickEventArgs,TIndicatorReleaseEventArgs, TInsertCheckEventArgs, TMarginClickEventArgs, TNeedShownEventArgs,TStyleNeededEventArgs, TUpdateUiEventArgs, TScNotificationEventArgs, TAutoCSelectionChangeEventArgs}.DwellEnd" /> events.
 /// </summary>
-public interface IDwellEventArgs : IScintillaEventArgs, IPosition
+public interface IDwellEventArgs : IScintillaEventArgs, IPosition, IBytePosition
 {
     /// <summary>
     /// Gets the zero-based document position where the mouse pointer was lingering.

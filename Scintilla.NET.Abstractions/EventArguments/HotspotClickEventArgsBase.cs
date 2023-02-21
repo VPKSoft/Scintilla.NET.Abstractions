@@ -11,8 +11,10 @@ namespace ScintillaNet.Abstractions.EventArguments;
 public abstract class HotspotClickEventArgsBase<TKeys> : ScintillaEventArgs, IHotspotClickEventArgs<TKeys>
     where TKeys: Enum
 {
-    private readonly int bytePosition;
     private int? position;
+
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the modifier keys (SHIFT, CTRL, ALT) held down when clicked.
@@ -28,7 +30,7 @@ public abstract class HotspotClickEventArgsBase<TKeys> : ScintillaEventArgs, IHo
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -50,7 +52,7 @@ public abstract class HotspotClickEventArgsBase<TKeys> : ScintillaEventArgs, IHo
         TKeys modifiers,
         int bytePosition) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         Modifiers = modifiers;
         LineCollectionGeneral = lineCollectionGeneral;
     }

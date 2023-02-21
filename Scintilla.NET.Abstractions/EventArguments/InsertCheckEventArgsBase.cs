@@ -10,7 +10,8 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class InsertCheckEventArgsBase : ScintillaEventArgs, IInsertCheckEventArgs
 {
-    private readonly int bytePosition;
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <inheritdoc />
     public virtual int? CachedPosition { get; set; }
@@ -26,7 +27,7 @@ public abstract class InsertCheckEventArgsBase : ScintillaEventArgs, IInsertChec
     {
         get
         {
-            CachedPosition ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            CachedPosition ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)CachedPosition;
         }
@@ -68,7 +69,7 @@ public abstract class InsertCheckEventArgsBase : ScintillaEventArgs, IInsertChec
         int bytePosition, int byteLength,
         IntPtr text) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         ByteLength = byteLength;
         LineCollectionGeneral = lineCollectionGeneral;
         TextPtr = text;

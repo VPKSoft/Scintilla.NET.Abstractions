@@ -10,8 +10,11 @@ namespace ScintillaNet.Abstractions.EventArguments;
 public abstract class DoubleClickEventArgsBase<TKeys> : ScintillaEventArgs, IDoubleClickEventArgs
     where TKeys: Enum
 {
-    private readonly int bytePosition;
     private int? position;
+
+
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the line double clicked.
@@ -39,7 +42,7 @@ public abstract class DoubleClickEventArgsBase<TKeys> : ScintillaEventArgs, IDou
     {
         get
         {
-            position ??= LineCollectionGeneral.ByteToCharPosition(bytePosition);
+            position ??= LineCollectionGeneral.ByteToCharPosition(BytePosition);
 
             return (int)position;
         }
@@ -60,7 +63,7 @@ public abstract class DoubleClickEventArgsBase<TKeys> : ScintillaEventArgs, IDou
         int bytePosition, 
         int line) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         Modifiers = modifiers;
         Line = line;
         LineCollectionGeneral = lineCollectionGeneral;
