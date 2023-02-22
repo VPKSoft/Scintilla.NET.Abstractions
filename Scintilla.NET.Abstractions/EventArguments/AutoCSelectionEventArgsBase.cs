@@ -10,9 +10,11 @@ namespace ScintillaNet.Abstractions.EventArguments;
 /// </summary>
 public abstract class AutoCSelectionEventArgsBase : ScintillaEventArgs, IAutoCSelectionEventArgs
 {
-    private readonly int bytePosition;
     private int? position;
     private string? text;
+    
+    /// <inheritdoc />
+    public int BytePosition { get; set; }
 
     /// <summary>
     /// Gets the fill-up character that caused the completion.
@@ -44,7 +46,7 @@ public abstract class AutoCSelectionEventArgsBase : ScintillaEventArgs, IAutoCSe
         {
             if (position == null)
             {
-                position = LineCollectionGeneral.ByteToCharPosition(bytePosition);
+                position = LineCollectionGeneral.ByteToCharPosition(BytePosition);
             }
 
             return (int)position;
@@ -87,7 +89,7 @@ public abstract class AutoCSelectionEventArgsBase : ScintillaEventArgs, IAutoCSe
         int bytePosition, IntPtr text, int ch,
         ListCompletionMethod listCompletionMethod) : base(scintilla)
     {
-        this.bytePosition = bytePosition;
+        BytePosition = bytePosition;
         TextPtr = text;
         Char = ch;
         ListCompletionMethod = listCompletionMethod;

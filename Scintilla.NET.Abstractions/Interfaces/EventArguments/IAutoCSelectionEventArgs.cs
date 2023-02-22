@@ -33,7 +33,7 @@ namespace ScintillaNet.Abstractions.Interfaces.EventArguments;
 /// <summary>
 /// Provides data for the Scintilla.AutoCSelection event.
 /// </summary>
-public interface  IAutoCSelectionEventArgs : IScintillaEventArgs, IPosition
+public interface  IAutoCSelectionEventArgs : IScintillaEventArgs, IPosition, IBytePosition
 {
     /// <summary>
     /// Gets the fill-up character that caused the completion.

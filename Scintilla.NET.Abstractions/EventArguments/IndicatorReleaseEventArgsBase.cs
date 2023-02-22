@@ -41,7 +41,7 @@ public abstract class IndicatorReleaseEventArgsBase : ScintillaEventArgs, IIndic
         int bytePosition) : base(scintilla)
 
     {
-        this.BytePosition = bytePosition;
+        BytePosition = bytePosition;
         LineCollectionGeneral = lineCollectionGeneral;
     }
 }
