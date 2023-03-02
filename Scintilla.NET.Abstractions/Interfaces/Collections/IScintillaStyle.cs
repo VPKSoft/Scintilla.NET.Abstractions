@@ -6,29 +6,13 @@ namespace ScintillaNet.Abstractions.Interfaces.Collections;
 /// <summary>
 /// A style definition in a <see cref="ScintillaApi" /> control.
 /// </summary>
-public interface IScintillaStyle<TColor>
-    where TColor: struct
+public interface IScintillaStyle
 {
-    #region Methods
-    /// <summary>
-    /// Copies the current style to another style.
-    /// </summary>
-    /// <param name="destination">The <see cref="IScintillaStyle{TColor}" /> to which the current style should be copied.</param>
-    public void CopyTo<TDestination>(IScintillaStyle<TColor>? destination) where TDestination : IScintillaStyle<TColor>;
-    #endregion Methods
-
     #region Properties
     /// <summary>
     /// A reference to the Scintilla control interface.
     /// </summary>
     IScintillaApi ScintillaApi { get; }
-
-    /// <summary>
-    /// Gets or sets the background color of the style.
-    /// </summary>
-    /// <returns>A Color object representing the style background color. The default is White.</returns>
-    /// <remarks>Alpha color values are ignored.</remarks>
-    TColor BackColor { get; set; }
 
     /// <summary>
     /// Gets or sets whether the style font is bold.
@@ -54,7 +38,7 @@ public interface IScintillaStyle<TColor>
     bool Changeable { get; set; }
 
     /// <summary>
-    /// Gets or sets whether the remainder of the line is filled with the <see cref="BackColor" />
+    /// Gets or sets whether the remainder of the line is filled with the <see cref="IScintillaStyle{TColor}.BackColor" />
     /// when this style is used on the last character of a line.
     /// </summary>
     /// <returns>true to fill the line; otherwise, false. The default is false.</returns>
@@ -66,13 +50,6 @@ public interface IScintillaStyle<TColor>
     /// <returns>The style font name. The default is Verdana.</returns>
     /// <remarks>Scintilla caches fonts by name so font names and casing should be consistent.</remarks>
     string Font { get; set; }
-
-    /// <summary>
-    /// Gets or sets the foreground color of the style.
-    /// </summary>
-    /// <returns>A Color object representing the style foreground color. The default is Black.</returns>
-    /// <remarks>Alpha color values are ignored.</remarks>
-    TColor ForeColor { get; set; }
 
     /// <summary>
     /// Gets or sets whether hovering the mouse over the style text exhibits hyperlink behavior.
@@ -122,5 +99,36 @@ public interface IScintillaStyle<TColor>
     /// <returns>The font weight. The default is 400.</returns>
     /// <remarks>Setting this property affects the <see cref="Bold" /> property.</remarks>
     int Weight { get; set; }
+    #endregion Properties
+}
+
+/// <summary>
+/// A style definition in a <see cref="IScintillaApi" /> control.
+/// </summary>
+public interface IScintillaStyle<TColor> : IScintillaStyle
+    where TColor: struct
+{
+    #region Methods
+    /// <summary>
+    /// Copies the current style to another style.
+    /// </summary>
+    /// <param name="destination">The <see cref="IScintillaStyle{TColor}" /> to which the current style should be copied.</param>
+    public void CopyTo<TDestination>(IScintillaStyle<TColor>? destination) where TDestination : IScintillaStyle<TColor>;
+    #endregion Methods
+
+    #region Properties
+    /// <summary>
+    /// Gets or sets the background color of the style.
+    /// </summary>
+    /// <returns>A Color object representing the style background color. The default is White.</returns>
+    /// <remarks>Alpha color values are ignored.</remarks>
+    TColor BackColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the foreground color of the style.
+    /// </summary>
+    /// <returns>A Color object representing the style foreground color. The default is Black.</returns>
+    /// <remarks>Alpha color values are ignored.</remarks>
+    TColor ForeColor { get; set; }
     #endregion Properties
 }

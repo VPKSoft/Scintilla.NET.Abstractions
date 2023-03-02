@@ -847,6 +847,12 @@ public interface IScintillaProperties
     /// <seealso cref="IScintillaMethods.ZoomIn" />
     /// <seealso cref="IScintillaMethods.ZoomOut" />
     int Zoom { get; set; }
+
+    /// <summary>
+    /// Gets a collection representing style definitions in a Scintilla control using HTML colors.
+    /// </summary>
+    /// <returns>A collection of style definitions.</returns>
+    StyleCollectionPrimitive StylesPrimitive { get; set; }
 }
 
 /// <summary>

@@ -8,44 +8,11 @@ namespace ScintillaNet.Abstractions.Collections;
 /// <summary>
 /// A style definition in a Scintilla control.
 /// </summary>
-public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
-    where TColor: struct
+public abstract class StyleBase : IScintillaStyle
 {
-    #region Methods
-    /// <inheritdoc />
-    public void CopyTo<TDestination>(IScintillaStyle<TColor>? destination) where TDestination : IScintillaStyle<TColor>
-    {
-        if (destination == null)
-        {
-            return;
-        }
-
-        destination.BackColor = BackColor;
-        // destination.Bold = Bold;
-        destination.Case = Case;
-        destination.FillLine = FillLine;
-        destination.Font = Font;
-        destination.ForeColor = ForeColor;
-        destination.Hotspot = Hotspot;
-        destination.Italic = Italic;
-        destination.Size = Size;
-        destination.SizeF = SizeF;
-        destination.Underline = Underline;
-        destination.Visible = Visible;
-        destination.Weight = Weight;
-    }
-    #endregion Methods
-
     #region Properties
     /// <inheritdoc />
     public IScintillaApi ScintillaApi { get; }
-
-    /// <summary>
-    /// Gets or sets the background color of the style.
-    /// </summary>
-    /// <returns>A Color object representing the style background color. The default is White.</returns>
-    /// <remarks>Alpha color values are ignored.</remarks>
-    public abstract TColor BackColor { get; set; }
 
     /// <summary>
     /// Gets or sets whether the style font is bold.
@@ -85,7 +52,7 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// <inheritdoc />
     public bool Changeable
     {
-        get =>  ScintillaApi.DirectMessage(SCI_STYLEGETCHANGEABLE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
+        get => ScintillaApi.DirectMessage(SCI_STYLEGETCHANGEABLE, new IntPtr(Index), IntPtr.Zero) != IntPtr.Zero;
 
         set
         {
@@ -95,7 +62,7 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     }
 
     /// <summary>
-    /// Gets or sets whether the remainder of the line is filled with the <see cref="BackColor" />
+    /// Gets or sets whether the remainder of the line is filled with the <see cref="IScintillaStyle{TColor}.BackColor" />
     /// when this style is used on the last character of a line.
     /// </summary>
     /// <returns>true to fill the line; otherwise, false. The default is false.</returns>
@@ -149,13 +116,6 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
             }
         }
     }
-
-    /// <summary>
-    /// Gets or sets the foreground color of the style.
-    /// </summary>
-    /// <returns>A Color object representing the style foreground color. The default is Black.</returns>
-    /// <remarks>Alpha color values are ignored.</remarks>
-    public abstract TColor ForeColor { get; set; }
 
     /// <summary>
     /// Gets or sets whether hovering the mouse over the style text exhibits hyperlink behavior.
@@ -257,7 +217,69 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
         get => ScintillaApi.DirectMessage(SCI_STYLEGETWEIGHT, new IntPtr(Index), IntPtr.Zero).ToInt32();
         set => ScintillaApi.DirectMessage(SCI_STYLESETWEIGHT, new IntPtr(Index), new IntPtr(value));
     }
+    #endregion Properties
 
+    #region Constructors
+
+    /// <summary>
+    /// Initializes a new instances of the <see cref="StyleBase" /> class.
+    /// </summary>
+    /// <param name="scintilla">The Scintilla control that created this style.</param>
+    /// <param name="index">The index of this style within the <see cref="StyleCollectionBase{TStyle,TColor}" /> that created it.</param>
+    public StyleBase(IScintillaApi scintilla, int index)
+    {
+        ScintillaApi = scintilla;
+        Index = index;
+    }
+
+    #endregion Constructors
+}
+
+/// <summary>
+/// A style definition in a Scintilla control.
+/// </summary>
+public abstract class StyleBase<TColor> : StyleBase, IScintillaStyle<TColor>
+    where TColor : struct
+{
+    #region Methods
+    /// <inheritdoc />
+    public void CopyTo<TDestination>(IScintillaStyle<TColor>? destination) where TDestination : IScintillaStyle<TColor>
+    {
+        if (destination == null)
+        {
+            return;
+        }
+
+        destination.BackColor = BackColor;
+        // destination.Bold = Bold;
+        destination.Case = Case;
+        destination.FillLine = FillLine;
+        destination.Font = Font;
+        destination.ForeColor = ForeColor;
+        destination.Hotspot = Hotspot;
+        destination.Italic = Italic;
+        destination.Size = Size;
+        destination.SizeF = SizeF;
+        destination.Underline = Underline;
+        destination.Visible = Visible;
+        destination.Weight = Weight;
+    }
+    #endregion Methods
+
+    #region Properties
+    /// <summary>
+    /// Gets or sets the background color of the style.
+    /// </summary>
+    /// <returns>A Color object representing the style background color. The default is White.</returns>
+    /// <remarks>Alpha color values are ignored.</remarks>
+    public abstract TColor BackColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the foreground color of the style.
+    /// </summary>
+    /// <returns>A Color object representing the style foreground color. The default is Black.</returns>
+    /// <remarks>Alpha color values are ignored.</remarks>
+    public abstract TColor ForeColor { get; set; }
     #endregion Properties
 
     #region Constructors
@@ -267,10 +289,8 @@ public abstract class StyleBase<TColor> : IScintillaStyle<TColor>
     /// </summary>
     /// <param name="scintilla">The Scintilla control that created this style.</param>
     /// <param name="index">The index of this style within the <see cref="StyleCollectionBase{TStyle,TColor}" /> that created it.</param>
-    public StyleBase(IScintillaApi scintilla, int index)
+    public StyleBase(IScintillaApi scintilla, int index) : base(scintilla, index)
     {
-        ScintillaApi = scintilla;
-        Index = index;
     }
 
     #endregion Constructors
