@@ -33,7 +33,7 @@
 	<PackageIcon>vpksoft_logo.png</PackageIcon>
 	<Title>Scintilla.NET.Abstractions</Title>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
-	<Version>1.0.10</Version>
+	<Version>1.0.11</Version>
   </PropertyGroup>
 
   <ItemGroup>

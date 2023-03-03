@@ -852,7 +852,7 @@ public interface IScintillaProperties
     /// Gets a collection representing style definitions in a Scintilla control using HTML colors.
     /// </summary>
     /// <returns>A collection of style definitions.</returns>
-    StyleCollectionPrimitive StylesPrimitive { get; set; }
+    StyleCollectionPrimitive StylesPrimitive { get; }
 }
 
 /// <summary>
